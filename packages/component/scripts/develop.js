@@ -3,7 +3,7 @@ import { spawnSync } from "child_process";
 import paths from "../config/paths";
 
 const child = spawnSync(
-  `${paths.ownModules}/.bin/rollup`,
+  "rollup",
   ["-c", `${paths.ownRoot}/config/rollup.config.js`, "-w"].concat(
     process.argv.slice(2)
   ),
@@ -11,3 +11,8 @@ const child = spawnSync(
     stdio: "inherit"
   }
 );
+
+if (error) {
+  console.error(error);
+  process.exit(1);
+}
