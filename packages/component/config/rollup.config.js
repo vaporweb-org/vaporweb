@@ -1,9 +1,9 @@
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import babel from "rollup-plugin-babel";
-import { eslint } from "rollup-plugin-eslint";
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import babel from 'rollup-plugin-babel';
+import { eslint } from 'rollup-plugin-eslint';
 
-import paths from "./paths";
+import paths from './paths';
 
 export default async function config() {
   const pkg = await import(paths.pkg);
@@ -27,8 +27,8 @@ export default async function config() {
     {
       input: paths.entry,
       output: [
-        { file: paths.cjsOut, format: "cjs" },
-        { file: paths.esmOut, format: "es" }
+        { file: paths.cjsOut, format: 'cjs' },
+        { file: paths.esmOut, format: 'es' },
       ],
       external: [].concat(
         Object.keys(pkg.dependencies || {}),
@@ -37,14 +37,14 @@ export default async function config() {
       plugins: [
         eslint({
           useEslintrc: false,
-          configFile: require.resolve('@vaporweb/eslint-config-vaporweb')
+          configFile: require.resolve('@vaporweb/eslint-config-vaporweb'),
         }),
         babel({
-          exclude: "/node_modules/**",
-          extensions: [".js", ".jsx", ".ts", ".tsx"],
-          ...require("@vaporweb/babel-preset-vaporweb")
-        })
-      ]
-    }
+          exclude: '/node_modules/**',
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          ...require('@vaporweb/babel-preset-vaporweb'),
+        }),
+      ],
+    },
   ];
 }
