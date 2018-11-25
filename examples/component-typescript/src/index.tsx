@@ -1,11 +1,7 @@
 import React from 'react'
 
-interface Props {
-
-}
-
-export default class MyComponent extends React.Component<Props> {
-  render() {
+export default class MyComponent extends React.Component {
+  public render() {
     return <div>Ｈｅｌｌｏ，　Ｗｏｒｌｄ！　こんにちは</div>
   }
 }

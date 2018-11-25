@@ -20,6 +20,6 @@
   "devDependencies": {
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
-    "@vaporweb/component": "0.0.4-alpha.0"
+    "@vaporweb/component": "0.0.5-alpha.0"
   }
 }
