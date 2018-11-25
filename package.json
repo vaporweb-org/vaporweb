@@ -5,7 +5,27 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^3.4.3"
+    "@vaporweb/eslint-config-vaporweb": "^0.0.3-alpha.0",
+    "eslint": "^5.9.0",
+    "husky": "^1.2.0",
+    "lerna": "^3.4.3",
+    "lint-staged": "^8.1.0"
+  },
+  "husky": {
+    "hooks": {  
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "@vaporweb/eslint-config-vaporweb"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
   },
   "version": "1.0.0",
   "main": "index.js",
