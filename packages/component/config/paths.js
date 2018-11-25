@@ -17,8 +17,6 @@ if (fs.existsSync(ts)) {
 const pkg = path.resolve(rootPath, 'package.json');
 const packageJson = require(pkg);
 
-console.log('hello');
-
 export default {
   entry,
   pkg,
