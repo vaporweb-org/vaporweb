@@ -1,7 +1,5 @@
 import { spawnSync } from 'child_process';
 
-import paths from '../config/paths';
-
 const { error } = spawnSync(
   'rollup',
   ['-c', require.resolve('../config/rollup.config.js')].concat(

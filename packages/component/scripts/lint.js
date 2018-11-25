@@ -1,18 +1,31 @@
-import { spawnSync } from "child_process";
+import { spawnSync } from 'child_process';
 
-import paths from "../config/paths";
-
-const { error } = spawnSync(
-  "eslint",
-  ["-c", require.resolve("@vaporweb/eslint-config-vaporweb"), "src"].concat(
+const eslint = spawnSync(
+  'eslint',
+  ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), 'src'].concat(
     process.argv.slice(2)
   ),
   {
-    stdio: "inherit"
+    stdio: 'inherit',
   }
 );
 
-if (error) {
-  console.error(error);
+const tslint = spawnSync(
+  'tslint',
+  ['-c', require.resolve('@vaporweb/tslint-config-vaporweb'), 'src/**'].concat(
+    process.argv.slice(2)
+  ),
+  {
+    stdio: 'inherit',
+  }
+);
+
+if (eslint.error) {
+  console.error(eslint.error);
+  process.exit(1);
+}
+
+if (tslint.error) {
+  console.error(tslint.error);
   process.exit(1);
 }

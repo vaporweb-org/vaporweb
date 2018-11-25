@@ -1,14 +1,12 @@
-import { spawnSync } from "child_process";
-
-import paths from "../config/paths";
+import { spawnSync } from 'child_process';
 
 const { error } = spawnSync(
-  "jest",
-  ["src", `--c=${require.resolve("@vaporweb/jest-config-vaporweb")}`].concat(
+  'jest',
+  ['src', `--c=${require.resolve('@vaporweb/jest-config-vaporweb')}`].concat(
     process.argv.slice(2)
   ),
   {
-    stdio: "inherit"
+    stdio: 'inherit',
   }
 );
 
