@@ -1,0 +1,26 @@
+{
+  "name": "vaporweb",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.4.3"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaporweb-org/vaporweb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vaporweb-org/vaporweb/issues"
+  },
+  "homepage": "https://github.com/vaporweb-org/vaporweb#readme",
+  "description": ""
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@vaporweb/component",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "component": "./bin/component.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.1.6",
+    "@vaporweb/babel-preset-vaporweb": "^1.0.0",
+    "@vaporweb/eslint-config-vaporweb": "^1.0.0",
+    "@vaporweb/jest-config-vaporweb": "^1.0.0",
+    "eslint": "^5.9.0",
+    "esm": "^3.0.84",
+    "jest": "^23.6.0",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-plugin-node-resolve": "^3.4.0"
+  }
+}
