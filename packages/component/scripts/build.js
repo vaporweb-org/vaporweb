@@ -1,14 +1,14 @@
-import { spawnSync } from "child_process";
+import { spawnSync } from 'child_process';
 
-import paths from "../config/paths";
+import paths from '../config/paths';
 
 const { error } = spawnSync(
-  "rollup",
-  ["-c", `${paths.ownRoot}/config/rollup.config.js`].concat(
+  'rollup',
+  ['-c', require.resolve('../config/rollup.config.js')].concat(
     process.argv.slice(2)
   ),
   {
-    stdio: "inherit"
+    stdio: 'inherit',
   }
 );
 
