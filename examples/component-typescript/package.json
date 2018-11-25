@@ -1,0 +1,25 @@
+{
+  "name": "vaporweb-component-example",
+  "version": "1.0.0",
+  "description": "",
+  "browser": "dist/index.umd.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "start": "component develop",
+    "build": "component build",
+    "test": "component test",
+    "lint": "component lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.7",
+    "@types/react-dom": "^16.0.10",
+    "@vaporweb/component": "0.0.4-alpha.0"
+  }
+}
