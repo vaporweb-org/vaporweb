@@ -8,6 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "",
   "dependencies": {
     "@babel/core": "^7.1.6",

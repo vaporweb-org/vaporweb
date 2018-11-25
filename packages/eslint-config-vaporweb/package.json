@@ -8,6 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "",
   "dependencies": {
     "babel-eslint": "^10.0.1",
