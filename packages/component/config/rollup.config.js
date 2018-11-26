@@ -1,7 +1,11 @@
+import fs from 'fs';
 import babel from 'rollup-plugin-babel';
 import { eslint } from 'rollup-plugin-eslint';
+import tslint from 'rollup-plugin-tslint';
 
 import paths from './paths';
+
+const useTypeScript = fs.existsSync('tsconfig.json');
 
 export default async function config() {
   const pkg = await import(paths.pkg);
@@ -36,13 +40,19 @@ export default async function config() {
         eslint({
           useEslintrc: false,
           configFile: require.resolve('@vaporweb/eslint-config-vaporweb'),
+          include: ['src/**/*.js', 'src/**/*.jsx'],
         }),
+        useTypeScript &&
+          tslint({
+            configuration: require.resolve('@vaporweb/tslint-config-vaporweb'),
+            include: ['src/**/*.ts', 'src/**/*.tsx'],
+          }),
         babel({
           exclude: '/node_modules/**',
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
-          ...require('@vaporweb/babel-preset-vaporweb'),
+          presets: ['@vaporweb/babel-preset-vaporweb'],
         }),
-      ],
+      ].filter(x => x),
     },
   ];
 }

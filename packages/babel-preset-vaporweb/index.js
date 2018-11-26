@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+module.exports = () => ({
   presets: [
     require.resolve('@babel/preset-env'),
     require.resolve('@babel/preset-typescript'),
@@ -13,4 +11,4 @@ module.exports = {
     ],
     require.resolve('@babel/plugin-proposal-object-rest-spread'),
   ],
-};
+});

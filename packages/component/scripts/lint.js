@@ -1,7 +1,7 @@
 import { spawnSync } from 'child_process';
 
 const eslint = spawnSync(
-  'eslint',
+  require.resolve('eslint/bin/eslint'),
   ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), 'src'].concat(
     process.argv.slice(2)
   ),
@@ -11,7 +11,7 @@ const eslint = spawnSync(
 );
 
 const tslint = spawnSync(
-  'tslint',
+  require.resolve('tslint/bin/tslint'),
   ['-c', require.resolve('@vaporweb/tslint-config-vaporweb'), 'src/**'].concat(
     process.argv.slice(2)
   ),
