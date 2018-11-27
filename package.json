@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@vaporweb/eslint-config-vaporweb": "^0.0.3-alpha.0",
+    "@vaporweb/eslint-config-vaporweb": "^0.0.11-alpha.0",
     "eslint": "^5.9.0",
     "husky": "^1.2.0",
     "lerna": "^3.4.3",

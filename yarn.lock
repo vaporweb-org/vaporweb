@@ -1286,16 +1286,6 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.10.tgz#4fa76e6598b7de3f0cb6ec3abacc4f59e5b3a2ce"
   integrity sha512-8xZEYckCbUVgK8Eg7lf5Iy4COKJ5uXlnIOnePN0WUwSQggy9tolM+tDJf7wMOnT/JT/W9xDYIaYggt3mRV2O5w==
 
-"@vaporweb/eslint-config-vaporweb@^0.0.3-alpha.0":
-  version "0.0.3-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vaporweb/eslint-config-vaporweb/-/eslint-config-vaporweb-0.0.3-alpha.0.tgz#185355abaa17c4051e9a8f30a257a69bfe19c9a0"
-  integrity sha512-MdNnO5G5pE+H6gOwzu0l78e6PozU7NeKK2D/D0yM2xQ578+G1I/joFeD4VwyDyB9iXviefAaGubaoU8iQE83EA==
-  dependencies:
-    babel-eslint "^10.0.1"
-    eslint-config-prettier "^3.3.0"
-    eslint-plugin-prettier "^3.0.0"
-    prettier "^1.15.2"
-
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"

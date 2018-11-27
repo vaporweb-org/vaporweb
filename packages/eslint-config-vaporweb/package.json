@@ -12,15 +12,15 @@
     "access": "public"
   },
   "description": "",
-  "dependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-config-react-app": "^3.0.5",
-    "eslint-plugin-flowtype": "^3.2.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-react": "^7.11.1",
-    "prettier": "^1.15.2"
+  "peerDependencies": {
+    "babel-eslint": "10.x",
+    "eslint-config-prettier": "3.x",
+    "eslint-config-react-app": "3.x",
+    "eslint-plugin-flowtype": "3.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "3.x",
+    "eslint-plugin-react": "7.x",
+    "prettier": "1.x"
   }
 }
