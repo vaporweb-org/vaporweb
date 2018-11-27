@@ -2,9 +2,6 @@
   "name": "@vaporweb/tslint-config-vaporweb",
   "version": "0.0.11-alpha.0",
   "main": "index.json",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
