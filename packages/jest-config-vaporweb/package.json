@@ -18,6 +18,5 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0"
-  },
-  "gitHead": "3132b66ab9fd3084b602fef8d6f734a6aaa0ce9c"
+  }
 }
