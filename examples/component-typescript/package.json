@@ -1,6 +1,5 @@
 {
   "name": "vaporweb-component-typescript-example",
-  "private": true,
   "version": "1.0.0",
   "description": "",
   "browser": "dist/index.umd.js",
