@@ -1,6 +1,6 @@
 {
   "name": "@vaporweb/tslint-config-vaporweb",
-  "version": "0.0.9-alpha.0",
+  "version": "0.0.10-alpha.0",
   "main": "index.json",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
