@@ -1,6 +1,6 @@
 {
   "name": "vaporweb-component-typescript-example",
-  "version": "1.0.0",
+  "version": "0.0.7-alpha.0",
   "description": "",
   "browser": "dist/index.umd.js",
   "main": "dist/index.cjs.js",
@@ -21,6 +21,6 @@
     "@types/jest": "^23.3.9",
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
-    "@vaporweb/component": "0.0.6-alpha.0"
+    "@vaporweb/component": "^0.0.7-alpha.0"
   }
 }

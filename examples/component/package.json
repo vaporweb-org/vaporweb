@@ -1,6 +1,6 @@
 {
   "name": "vaporweb-component-example",
-  "version": "1.0.0",
+  "version": "0.0.7-alpha.0",
   "description": "",
   "browser": "dist/index.umd.js",
   "main": "dist/index.cjs.js",
@@ -18,6 +18,6 @@
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
-    "@vaporweb/component": "0.0.6-alpha.0"
+    "@vaporweb/component": "^0.0.7-alpha.0"
   }
 }

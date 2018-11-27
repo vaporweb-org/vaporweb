@@ -1,6 +1,6 @@
 {
   "name": "@vaporweb/component",
-  "version": "0.0.6-alpha.0",
+  "version": "0.0.7-alpha.0",
   "description": "",
   "bin": {
     "component": "./bin/component.js"
@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.6",
-    "@vaporweb/babel-preset-vaporweb": "^0.0.6-alpha.0",
-    "@vaporweb/eslint-config-vaporweb": "^0.0.6-alpha.0",
-    "@vaporweb/jest-config-vaporweb": "^0.0.6-alpha.0",
+    "@vaporweb/babel-preset-vaporweb": "^0.0.7-alpha.0",
+    "@vaporweb/eslint-config-vaporweb": "^0.0.7-alpha.0",
+    "@vaporweb/jest-config-vaporweb": "^0.0.7-alpha.0",
     "eslint": "^5.9.0",
     "esm": "^3.0.84",
     "jest": "^23.6.0",
