@@ -1,0 +1,16 @@
+{
+  "name": "vaporweb-component-example",
+  "version": "1.0.0",
+  "description": "",
+  "browser": "dist/index.umd.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "start": "component develop",
+    "build": "component build",
+    "test": "component test",
+    "lint": "component lint"
+  },
+  "author": "",
+  "license": "ISC"
+}
