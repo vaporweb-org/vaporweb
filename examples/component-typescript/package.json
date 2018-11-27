@@ -1,6 +1,6 @@
 {
   "name": "vaporweb-component-typescript-example",
-  "version": "0.0.7-alpha.0",
+  "version": "1.0.0",
   "description": "",
   "browser": "dist/index.umd.js",
   "main": "dist/index.cjs.js",

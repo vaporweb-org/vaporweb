@@ -2,8 +2,7 @@
   "name": "vaporweb",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ],
   "devDependencies": {
     "@vaporweb/eslint-config-vaporweb": "^0.0.3-alpha.0",

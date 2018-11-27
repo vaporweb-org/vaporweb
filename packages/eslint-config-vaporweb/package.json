@@ -22,5 +22,6 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.15.2"
-  }
+  },
+  "gitHead": "3132b66ab9fd3084b602fef8d6f734a6aaa0ce9c"
 }
