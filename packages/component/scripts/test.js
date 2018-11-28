@@ -1,7 +1,7 @@
 import { spawnSync } from 'child_process';
 
 const { error } = spawnSync(
-  require.resolve('jest/bin/jest'),
+  require.resolve('.bin/jest'),
   ['src', `--c=${require.resolve('@vaporweb/jest-config-vaporweb')}`].concat(
     process.argv.slice(2)
   ),
