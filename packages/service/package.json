@@ -5,6 +5,9 @@
   "bin": {
     "service": "./bin/service.js"
   },
+  "files": [
+    "bin"
+  ],
   "author": "",
   "license": "ISC",
   "publishConfig": {

@@ -2,6 +2,9 @@
   "name": "@vaporweb/eslint-config-vaporweb",
   "version": "0.0.12-alpha.0",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",

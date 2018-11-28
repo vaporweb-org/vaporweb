@@ -5,6 +5,9 @@
   "bin": {
     "app": "./bin/app.js"
   },
+  "files": [
+    "bin"
+  ],
   "author": "",
   "license": "ISC",
   "publishConfig": {

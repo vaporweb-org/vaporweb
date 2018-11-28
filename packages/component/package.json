@@ -5,6 +5,11 @@
   "bin": {
     "component": "./bin/component.js"
   },
+  "files": [
+    "bin",
+    "config",
+    "scripts"
+  ],
   "author": "",
   "license": "ISC",
   "publishConfig": {
