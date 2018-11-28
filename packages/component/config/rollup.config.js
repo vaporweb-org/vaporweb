@@ -5,10 +5,13 @@ import tslint from 'rollup-plugin-tslint';
 import progress from 'rollup-plugin-progress';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
+import typescript from 'rollup-plugin-typescript2';
 
 import paths from './paths';
 
+// TODO: create vaporweb config//plugin schema
 const useTypeScript = fs.existsSync('tsconfig.json');
+const useBabel = !useTypeScript;
 
 export default async function config() {
   const pkg = await import(paths.pkg);
@@ -55,12 +58,17 @@ export default async function config() {
             configuration: require.resolve('@vaporweb/tslint-config-vaporweb'),
             include: ['src/**/*.ts', 'src/**/*.tsx'],
           }),
-        babel({
-          exclude: '/node_modules/**',
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
-          presets: ['@vaporweb/babel-preset-vaporweb'],
-        }),
+        useTypeScript && typescript(),
+        useBabel &&
+          babel({
+            exclude: '/node_modules/**',
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            presets: ['@vaporweb/babel-preset-vaporweb'],
+          }),
       ].filter(x => x),
+      watch: {
+        clearScreen: false,
+      },
     },
   ];
 }
