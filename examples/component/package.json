@@ -11,20 +11,20 @@
     "test": "component test",
     "lint": "component lint"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
-  },
-  "devDependencies": {
-    "@vaporweb/component": "^0.0.8-alpha.0"
-  },
   "eslintConfig": {
     "extends": "@vaporweb/eslint-config-vaporweb"
   },
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "16.6.3",
+    "react-dom": "16.6.3"
+  },
+  "devDependencies": {
+    "@vaporweb/component": "0.0.13-alpha.0"
   }
 }
