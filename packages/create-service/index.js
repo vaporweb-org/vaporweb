@@ -40,15 +40,13 @@ if (program.typescript) {
 
 fs.copySync(templateDir, root);
 
-const dependencies = ['react', 'react-dom'];
-const devDependencies = ['@vaporweb/component'];
+const dependencies = ['apollo-server', 'graphql'];
+const devDependencies = ['@vaporweb/service'];
 if (program.typescript) {
-  devDependencies.push(
-    '@types/react',
-    '@types/react-dom',
-    '@types/node',
-    '@types/jest'
-  );
+  dependencies.push('ts-node', 'typescript');
+  devDependencies.push('@types/node', '@types/jest', '@types/graphql');
+} else {
+  dependencies.push('esm');
 }
 
 process.chdir(root);

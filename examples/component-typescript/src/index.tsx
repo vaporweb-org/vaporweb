@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-export default class MyComponent extends React.Component {
+interface IProps {
+  name?: string;
+}
+
+export default class MyComponent extends React.Component<IProps> {
   public render() {
-    return <div>Ｈｅｌｌｏ，　Ｗｏｒｌｄ！　こんにちは</div>
+    const { name } = this.props;
+    return <div>Ｈｅｌｌｏ，　{name || 'Ｗｏｒｌｄ'}！　こんにちは</div>;
   }
 }

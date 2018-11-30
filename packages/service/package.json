@@ -6,7 +6,8 @@
     "service": "./bin/service.js"
   },
   "files": [
-    "bin"
+    "bin",
+    "scripts"
   ],
   "author": "",
   "license": "ISC",
@@ -19,10 +20,27 @@
     "@vaporweb/eslint-config-vaporweb": "^0.0.12-alpha.0",
     "@vaporweb/jest-config-vaporweb": "^0.0.12-alpha.0",
     "@vaporweb/tslint-config-vaporweb": "^0.0.12-alpha.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
     "esm": "^3.0.84",
     "jest": "^23.6.0",
+    "nodemon": "^1.18.7",
+    "prettier": "^1.15.2",
+    "ts-node-dev": "^1.0.0-pre.31",
     "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.1.6"
   }
 }

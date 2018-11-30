@@ -12,5 +12,12 @@
     "lint": "component lint"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "@vaporweb/eslint-config-vaporweb"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  }
 }

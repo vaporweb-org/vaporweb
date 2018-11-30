@@ -1,0 +1,20 @@
+{
+  "name": "vaporweb-service-example",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node -r ts-node/register ./index.ts",
+    "develop": "service develop ./index.ts",
+    "test": "service test",
+    "lint": "service lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "@vaporweb/eslint-config-vaporweb"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  }
+}

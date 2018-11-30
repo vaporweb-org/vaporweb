@@ -6,6 +6,8 @@ module.exports = {
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
     '<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
+    '<rootDir>/test/**/__tests__/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/test/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
   ],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': require.resolve('./babelTransform'),

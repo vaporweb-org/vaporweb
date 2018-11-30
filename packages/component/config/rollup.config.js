@@ -16,22 +16,6 @@ const useBabel = !useTypeScript;
 export default async function config() {
   const pkg = await import(paths.pkg);
   return [
-    // {
-    //   input: paths.entry,
-    //   output: {
-    //     name: paths.umdName,
-    //     file: paths.umdOut,
-    //     format: "umd"
-    //   },
-    //   plugins: [
-    //     resolve(),
-    //     commonjs(),
-    //     babel({
-    //       exclude: "/node_modules/**",
-    //       ...require("./babel.config.js")
-    //     })
-    //   ]
-    // },
     {
       input: paths.entry,
       output: [
@@ -61,11 +45,12 @@ export default async function config() {
         useTypeScript && typescript(),
         useBabel &&
           babel({
+            babelrc: false,
             exclude: '/node_modules/**',
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
             presets: ['@vaporweb/babel-preset-vaporweb'],
           }),
-      ].filter(x => x),
+      ].filter(Boolean),
       watch: {
         clearScreen: false,
       },
