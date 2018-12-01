@@ -4,10 +4,8 @@ module.exports = {
   rootDir: process.env.PWD,
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   testMatch: [
-    '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
-    '<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
-    '<rootDir>/test/**/__tests__/**/*.{js,jsx,ts,tsx}',
-    '<rootDir>/test/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
+    '<rootDir>/(src|test(s|))/**/__tests__/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/(src|test(s|))/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
   ],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': require.resolve('./babelTransform'),

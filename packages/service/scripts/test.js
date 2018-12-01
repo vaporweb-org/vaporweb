@@ -1,16 +1,18 @@
-import { spawnSync } from 'child_process';
+import path from 'path';
+import jest from 'jest';
+import jestConfigVaporweb from '@vaporweb/jest-config-vaporweb';
 
-const { error } = spawnSync(
-  require.resolve('.bin/jest'),
-  ['.', `--c=${require.resolve('@vaporweb/jest-config-vaporweb')}`].concat(
-    process.argv.slice(2)
-  ),
-  {
-    stdio: 'inherit',
+const appPackageJson = path.resolve(process.cwd(), 'package.json');
+const config = Object.assign({}, jestConfigVaporweb);
+const overrides = Object.assign({}, require(appPackageJson).jest);
+
+Object.keys(overrides).forEach(key => {
+  if (overrides.hasOwnProperty(key)) {
+    config[key] = overrides[key];
+    delete overrides[key];
   }
-);
+});
 
-if (error) {
-  console.error(error);
-  process.exit(1);
-}
+const argv = ['-c', JSON.stringify(config)].concat(process.argv.slice(2));
+
+jest.run(argv);

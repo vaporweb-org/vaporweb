@@ -3,18 +3,18 @@ import { spawnSync } from 'child_process';
 
 const useTypeScript = fs.existsSync('tsconfig.json');
 
-const eslint = spawnSync(
-  require.resolve('.bin/eslint'),
-  ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), '.'].concat(
-    process.argv.slice(2)
-  ),
-  {
-    stdio: 'inherit',
-  }
-);
+const eslint = () =>
+  spawnSync(
+    require.resolve('.bin/eslint'),
+    ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), '.'].concat(
+      process.argv.slice(2)
+    ),
+    {
+      stdio: 'inherit',
+    }
+  );
 
-const tslint =
-  useTypeScript &&
+const tslint = () =>
   spawnSync(
     require.resolve('.bin/tslint'),
     [
@@ -28,12 +28,9 @@ const tslint =
     }
   );
 
-if (eslint.error) {
-  console.error(eslint.error);
-  process.exit(1);
-}
+const { error } = useTypeScript ? tslint() : eslint();
 
-if (useTypeScript && tslint.error) {
-  console.error(tslint.error);
+if (error) {
+  console.error(error);
   process.exit(1);
 }

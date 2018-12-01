@@ -19,7 +19,7 @@ yarn start
 or.... with npm init.
 
 ```
-npm init @vaporweb/component
+npm init @vaporweb/component my-component
 cd my-component
 npm start
 ```
@@ -27,6 +27,7 @@ npm start
 You can also initialize a project with TypeScript
 
 ```
-yarn create @vaporweb/component --typescript
+yarn create @vaporweb/component my-component --typescript
 cd my-component
+yarn start
 ```

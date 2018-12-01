@@ -1,20 +1,21 @@
-import fs from 'fs';
 import { spawnSync } from 'child_process';
 
-const useTypeScript = fs.existsSync('tsconfig.json');
+import config from '../config/vaporweb.config.js';
 
-const eslint = spawnSync(
-  require.resolve('.bin/eslint'),
-  ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), 'src'].concat(
-    process.argv.slice(2)
-  ),
-  {
-    stdio: 'inherit',
-  }
-);
+const eslint =
+  config.eslint &&
+  spawnSync(
+    require.resolve('.bin/eslint'),
+    ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), 'src'].concat(
+      process.argv.slice(2)
+    ),
+    {
+      stdio: 'inherit',
+    }
+  );
 
 const tslint =
-  useTypeScript &&
+  config.tslint &&
   spawnSync(
     require.resolve('tslint/bin/tslint'),
     [
@@ -27,12 +28,12 @@ const tslint =
     }
   );
 
-if (eslint.error) {
+if (eslint && eslint.error) {
   console.error(eslint.error);
   process.exit(1);
 }
 
-if (useTypeScript && tslint.error) {
+if (tslint && tslint.error) {
   console.error(tslint.error);
   process.exit(1);
 }
