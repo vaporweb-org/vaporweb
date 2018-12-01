@@ -14,7 +14,7 @@ export default function config() {
   const pkg = require(paths.pkg);
   const isProd = !process.env.ROLLUP_WATCH;
 
-  return vaporwebConfig.modify({
+  return vaporwebConfig.rollup({
     input: paths.entry,
     output: [
       { file: paths.cjsOut, format: 'cjs' },
