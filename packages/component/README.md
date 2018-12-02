@@ -50,5 +50,3 @@ You can modify the config by placing a .vaporweb.js file in the root of your pro
     }
   }
 ```
-
-

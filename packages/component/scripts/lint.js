@@ -17,7 +17,7 @@ const eslint =
 const tslint =
   config.tslint &&
   spawnSync(
-    require.resolve('tslint/bin/tslint'),
+    require.resolve('.bin/tslint'),
     [
       '-c',
       require.resolve('@vaporweb/tslint-config-vaporweb'),

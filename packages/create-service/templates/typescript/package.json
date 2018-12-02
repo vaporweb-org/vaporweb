@@ -2,9 +2,10 @@
   "name": "vaporweb-service-example",
   "version": "1.0.0",
   "description": "",
+  "main": "index.ts",
   "scripts": {
     "start": "node -r ts-node/register ./index.ts",
-    "develop": "service develop ./index.ts",
+    "develop": "service develop",
     "test": "service test",
     "lint": "service lint"
   },
@@ -16,5 +17,8 @@
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
