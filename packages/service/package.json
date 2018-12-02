@@ -10,7 +10,7 @@
     "scripts"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },

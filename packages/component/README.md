@@ -45,6 +45,7 @@ You can modify the config by placing a .vaporweb.js file in the root of your pro
     tsc: false,
     tslint: false,
     rollup(config) {
+      config.plugins.push(terser())
       return config
     }
   }

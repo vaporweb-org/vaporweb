@@ -9,7 +9,7 @@
     "lint": "service lint"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "eslintConfig": {
     "extends": "@vaporweb/eslint-config-vaporweb"
   },

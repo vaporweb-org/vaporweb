@@ -3,7 +3,7 @@
   "version": "0.0.13-alpha.0",
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },

@@ -41,7 +41,7 @@
     "url": "git+https://github.com/vaporweb-org/vaporweb.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vaporweb-org/vaporweb/issues"
   },

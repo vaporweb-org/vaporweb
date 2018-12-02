@@ -1,6 +1,6 @@
 # v a p o r w e b
 
-Create React components and Node.js services with no configuration.
+Create React component libraries and Node.js services with no configuration.
 
 ## Overview
 
