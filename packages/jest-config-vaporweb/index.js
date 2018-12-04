@@ -1,5 +1,3 @@
-const { defaults } = require('jest-config');
-
 module.exports = vaporwebConfig => {
   let config = {
     rootDir: process.env.PWD,
@@ -8,7 +6,7 @@ module.exports = vaporwebConfig => {
   if (vaporwebConfig.babel && !vaporwebConfig.tsc) {
     config = {
       ...config,
-      moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
+      moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx'],
       testMatch: [
         '<rootDir>/**/__tests__/**/*.{js,jsx,ts,tsx}',
         '<rootDir>/**/?(*.)(spec|test).{js,jsx,ts,tsx}',
