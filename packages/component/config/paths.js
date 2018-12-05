@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import findUp from 'find-up';
 
 const rootPath = path.resolve(process.cwd());
 const src = path.resolve(rootPath, 'src');
@@ -17,7 +18,7 @@ const pkg = path.resolve(rootPath, 'package.json');
 const packageJson = require(pkg);
 
 const tsConfig = path.resolve(rootPath, 'tsconfig.json');
-const customConfig = path.resolve(rootPath, '.vaporweb.js');
+const customConfig = findUp.sync(['.vaporweb.js']);
 
 export default {
   entry,
