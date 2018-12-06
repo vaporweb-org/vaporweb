@@ -18,7 +18,9 @@ const pkg = path.resolve(rootPath, 'package.json');
 const packageJson = require(pkg);
 
 const tsConfig = path.resolve(rootPath, 'tsconfig.json');
-const customConfig = findUp.sync(['.vaporweb.js']);
+const customConfig = findUp.sync(['.vaporweb.js'], {
+  cwd: __dirname,
+});
 
 export default {
   entry,
