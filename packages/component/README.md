@@ -34,9 +34,9 @@ Starts the test runner. CLI options will be forwarded to [Jest](https://jestjs.i
 
 You can override jest configuration options by adding them to the package.json file.
 
-## Vaporweb Config
+## Component Config
 
-You can modify the config by placing a .vaporweb.js file in the root of your project. The config defaults are given in the example below.
+You can modify the config by placing a .component.js file in the root of your project. The config defaults are given in the example below.
 
 ```
   module.exports = {

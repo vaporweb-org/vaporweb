@@ -8,13 +8,13 @@ import replace from 'rollup-plugin-replace';
 import typescript from 'rollup-plugin-typescript2';
 
 import paths from './paths';
-import vaporwebConfig from './vaporweb.config.js';
+import componentConfig from './component.config.js';
 
 export default function config() {
   const pkg = require(paths.pkg);
   const isProd = !process.env.ROLLUP_WATCH;
 
-  return vaporwebConfig.rollup({
+  return componentConfig.rollup({
     input: paths.entry,
     output: [
       { file: paths.cjsOut, format: 'cjs' },
@@ -30,18 +30,18 @@ export default function config() {
       replace({
         'process.env.NODE_ENV': isProd ? '"production"' : '"development"',
       }),
-      vaporwebConfig.eslint &&
+      componentConfig.eslint &&
         eslint({
           configFile: require.resolve('@vaporweb/eslint-config-vaporweb'),
           include: ['src/**/*.js', 'src/**/*.jsx'],
         }),
-      vaporwebConfig.tslint &&
+      componentConfig.tslint &&
         tslint({
           configuration: require.resolve('@vaporweb/tslint-config-vaporweb'),
           include: ['src/**/*.ts', 'src/**/*.tsx'],
         }),
-      vaporwebConfig.tsc && typescript(),
-      vaporwebConfig.babel &&
+      componentConfig.tsc && typescript(),
+      componentConfig.babel &&
         babel({
           babelrc: false,
           configFile: false,

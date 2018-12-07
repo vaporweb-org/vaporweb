@@ -1,6 +1,6 @@
 import { spawnSync } from 'child_process';
 
-import config from '../config/vaporweb.config.js';
+import config from '../config/component.config.js';
 
 const eslint =
   config.eslint &&

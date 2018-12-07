@@ -2,11 +2,11 @@ import path from 'path';
 import jest from 'jest';
 import jestConfigVaporweb from '@vaporweb/jest-config-vaporweb';
 
-import vaporwebConfig from '../config/vaporweb.config.js';
+import componentConfig from '../config/component.config.js';
 
 const packageJson = path.resolve(process.cwd(), 'package.json');
 const config = JSON.stringify({
-  ...jestConfigVaporweb(vaporwebConfig),
+  ...jestConfigVaporweb(componentConfig),
   ...require(packageJson).jest,
 });
 
