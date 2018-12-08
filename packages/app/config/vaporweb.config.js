@@ -6,11 +6,13 @@ let config = {
   eslint: true,
   tsc: false,
   tslint: false,
-  webpack: cfg => cfg,
+  server: false,
+  webpack: (cfg, { target, env }) => cfg,
 };
 
 const hasTsConfig = fs.existsSync(paths.tsConfig);
 const hasCustomConfig = fs.existsSync(paths.customConfig);
+const bundleServer = fs.existsSync(paths.clientEntry);
 
 if (hasTsConfig) {
   config = {
@@ -27,6 +29,13 @@ if (hasCustomConfig) {
   config = {
     ...config,
     ...customConfig,
+  };
+}
+
+if (bundleServer) {
+  config = {
+    ...config,
+    server: true,
   };
 }
 

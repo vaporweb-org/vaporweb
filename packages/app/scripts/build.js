@@ -1,20 +1,27 @@
+import fs from 'fs-extra';
 import webpack from 'webpack';
-import config from '../config/webpack.config';
-import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages';
+import webpackConfig from '../config/webpack.config';
+import paths from '../config/paths';
 
-const compiler = webpack(config());
+const { client, server } = webpackConfig();
+const clientCompiler = webpack(client);
 
-compiler.run((err, stats) => {
+clientCompiler.run(err => {
   if (err) {
     throw err;
   }
 
-  const { errors, warnings } = formatWebpackMessages(stats.toJson(), true);
-  if (errors.lenght) {
-    throw new Error(errors.join('\n\n'));
-  }
+  if (server) {
+    const serverCompiler = webpack(server);
 
-  if (warnings.length) {
-    console.warn(warnings.join('\n\n'));
+    serverCompiler.run((err, stats) => {
+      if (err) {
+        throw err;
+      }
+    });
   }
+});
+
+fs.copySync(paths.publicPath, paths.clientOutput, {
+  dereference: true,
 });

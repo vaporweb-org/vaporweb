@@ -1,21 +1,35 @@
+import fs from 'fs-extra';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 
-import config from '../config/webpack.config';
+import paths from '../config/paths';
+import webpackConfig from '../config/webpack.config';
 
-const compiler = webpack(config());
+const { client, server } = webpackConfig();
 
-compiler.plugin('done', () => {
-  console.log('done');
-});
+const clientCompiler = webpack(client);
 
-const devServer = new WebpackDevServer(compiler, {
-  // quiet: true,
-  // stats: 'none'
-});
-
-devServer.listen(8080, err => {
-  if (err) {
-    console.log(err);
+clientCompiler.plugin('done', () => {
+  if (server) {
+    const serverCompiler = webpack(server);
+    serverCompiler.watch(
+      {
+        quiet: true,
+        stats: 'none',
+      },
+      stats => {}
+    );
   }
+});
+
+const devServer = new WebpackDevServer(clientCompiler, client.devServer);
+
+devServer.listen(3001, err => {
+  if (err) {
+    console.error(err);
+  }
+});
+
+fs.copySync(paths.publicPath, paths.clientOutput, {
+  dereference: true,
 });
