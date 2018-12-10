@@ -3,22 +3,21 @@ import StartServerPlugin from 'start-server-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import WebpackBar from 'webpackbar';
+import ManifestPlugin from 'webpack-manifest-plugin';
 
 import paths from './paths';
-import vaporwebConfig from './vaporweb.config';
-
-var ManifestPlugin = require('webpack-manifest-plugin');
-
-const mode = 'development'; // process.env.NODE_ENV || 'production';
-const isProd = false; // process.env.NODE_ENV === 'production';
-const isDev = true; // process.env.NODE_ENV === 'development';
-
-const __PORT__ = '3000';
-
-const devServerPort = parseInt(__PORT__, 10) + 1;
-const clientPublicPath = isDev ? `http://localhost:${devServerPort}/` : '/';
+import appConfig from './app.config';
 
 export default () => {
+  const mode = process.env.NODE_ENV || 'development';
+  const isProd = mode === 'production';
+  const isDev = mode === 'development';
+
+  const __PORT__ = '3000';
+
+  const devServerPort = parseInt(__PORT__, 10) + 1;
+  const clientPublicPath = isDev ? `http://localhost:${devServerPort}/` : '/';
+
   const baseConfig = {
     mode,
     bail: isProd,
@@ -28,6 +27,7 @@ export default () => {
         {
           test: /\.(t|j)sx?$/,
           exclude: /node_modules/,
+          include: [paths.src],
           use: {
             loader: 'babel-loader',
             options: {
@@ -87,9 +87,9 @@ export default () => {
     },
   };
 
-  if (vaporwebConfig.server) {
+  if (appConfig.server) {
     return {
-      server: vaporwebConfig.webpack(
+      server: appConfig.webpack(
         {
           ...baseConfig,
           mode: 'none',
@@ -112,10 +112,7 @@ export default () => {
               maxChunks: 1,
             }),
             isDev && new webpack.HotModuleReplacementPlugin(),
-            isDev &&
-              new webpack.WatchIgnorePlugin([
-                process.cwd() + '/dist/public/manifest.json',
-              ]),
+            isDev && new webpack.WatchIgnorePlugin([paths.appManifest]),
             isDev &&
               new StartServerPlugin({
                 name: 'server.js',
@@ -126,7 +123,7 @@ export default () => {
         },
         { target: 'server', env: mode }
       ),
-      client: vaporwebConfig.webpack(
+      client: appConfig.webpack(
         {
           ...baseClientConfig,
           entry: {
@@ -142,7 +139,7 @@ export default () => {
   }
 
   return {
-    client: vaporwebConfig.webpack(
+    client: appConfig.webpack(
       {
         ...baseClientConfig,
         entry: { client: [paths.entry] },

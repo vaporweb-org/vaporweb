@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './client.css';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { createHttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
 import App from './components/App';
-// import * as serviceWorker from './serviceWorker';
 
-ReactDOM.hydrate(<App />, document.getElementById('root'));
+const client = new ApolloClient({
+  link: createHttpLink({
+    uri: 'http://localhost:3010',
+    credentials: 'same-origin',
+  }),
+  cache: new InMemoryCache(),
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-// serviceWorker.unregister();
+ReactDOM.hydrate(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById('root')
+);
 
 if (module.hot) {
   module.hot.accept();

@@ -1,43 +1,53 @@
 import fs from 'fs';
 import path from 'path';
+import commander from 'commander';
 
-function resolveOne(relativeTo, files) {
-  let filePath;
-  files.forEach(file => {
-    const resolved = path.resolve(relativeTo, file);
-    if (fs.existsSync(resolved)) {
-      filePath = resolved;
-    }
-  });
-  return filePath;
-}
+const argv = commander
+  .option('--root <dir>')
+  .allowUnknownOption()
+  .parse(process.argv);
 
 const rootPath = path.resolve(process.cwd());
-const src = path.resolve(rootPath, 'src');
-const publicPath = path.resolve(rootPath, 'public');
+const appPath = fs.realpathSync(argv.root || process.cwd());
+const resolveRoot = relativePath => path.resolve(rootPath, relativePath);
+const resolveApp = relativePath => path.resolve(appPath, relativePath);
 
-const entry = resolveOne(src, ['index.js', 'index.ts', 'index.tsx']);
-const output = path.resolve(rootPath, 'dist');
+const moduleFileExtensions = [
+  'web.mjs',
+  'mjs',
+  'web.js',
+  'js',
+  'web.ts',
+  'ts',
+  'web.tsx',
+  'tsx',
+  'json',
+  'web.jsx',
+  'jsx',
+];
 
-const clientEntry = resolveOne(src, ['client.js', 'client.ts', 'client.tsx']);
-const clientOutput = path.resolve(output, 'public');
+// Resolve file paths in the same order as webpack
+const resolveExt = (resolveFn, filePath) => {
+  const extension = moduleFileExtensions.find(extension =>
+    fs.existsSync(resolveFn(`${filePath}.${extension}`))
+  );
 
-const pkg = path.resolve(rootPath, 'package.json');
-const packageJson = require(pkg);
+  if (extension) {
+    return resolveFn(`${filePath}.${extension}`);
+  }
 
-const tsConfig = path.resolve(rootPath, 'tsconfig.json');
-const customConfig = path.resolve(rootPath, '.app.js');
+  return resolveFn(`${filePath}.js`);
+};
 
 export default {
-  src,
-  publicPath,
-  entry,
-  output,
-  clientEntry,
-  clientOutput,
-  pkg,
-  customConfig,
-  tsConfig,
-  cjsOut: packageJson.main,
-  esmOut: packageJson.module,
+  src: resolveApp('src'),
+  publicPath: resolveApp('public'),
+  entry: resolveExt(resolveApp, 'src/index'),
+  output: resolveApp('dist'),
+  clientEntry: resolveExt(resolveApp, 'src/client'),
+  clientOutput: resolveApp('dist/public'),
+  appManifest: resolveApp('dist/public/manifest.json'),
+  pkg: resolveRoot('package.json'),
+  customConfig: resolveApp('.app.js'),
+  tsConfig: resolveRoot('tsconfig.json'),
 };

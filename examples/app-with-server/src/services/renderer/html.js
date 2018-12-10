@@ -6,13 +6,17 @@ export function header() {
     <html lang="en">
       <head> </head>
       <body>
-        <div id="root">hello world`; // eslint-disable-line
+        <div id="root">`; // eslint-disable-line
 }
 
-export function footer({ assets }) {
-  return html`</div>
-        <script src=${assets['client.js']}></script>
-      </body>
-    </html>
+export function footer({ assets, data }) {
+  return html`
+        </div>
+          <script>
+            window.__APOLLO_STATE__ = ${JSON.stringify(data)};
+          </script>
+          <script src=${assets['client.js']}></script>
+        </body>
+      </html>
   `;
 }

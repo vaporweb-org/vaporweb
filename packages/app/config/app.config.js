@@ -1,4 +1,6 @@
 import fs from 'fs';
+import path from 'path';
+
 import paths from './paths';
 
 let config = {

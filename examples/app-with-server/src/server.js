@@ -14,13 +14,11 @@ import { render } from './services/renderer';
 
 const app = express();
 
-app.use(express.static(path.resolve('.', 'build', 'public')));
+app.use(express.static(path.resolve('.', 'dist', 'public')));
 
 app.use('*', (req, res) => {
   const client = new ApolloClient({
     ssrMode: true,
-    // Remember that this is the interface the SSR server will use to connect to the
-    // API server, so we need to ensure it isn't firewalled, etc
     link: createHttpLink({
       fetch,
       uri: 'http://localhost:3010',

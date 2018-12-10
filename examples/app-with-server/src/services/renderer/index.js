@@ -16,6 +16,7 @@ export async function render(Root, { client, req, res }) {
     { end: false }
   );
 
+  // TODO: fix this import
   const assets = require('../../../dist/public/manifest.json');
 
   stream.on('end', () => {
