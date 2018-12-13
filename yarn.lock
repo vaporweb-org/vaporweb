@@ -1313,6 +1313,21 @@
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.1.0"
 
+"@vaporweb/eslint-config-vaporweb@^0.0.11-alpha.0":
+  version "0.0.11-alpha.0"
+  resolved "https://registry.yarnpkg.com/@vaporweb/eslint-config-vaporweb/-/eslint-config-vaporweb-0.0.11-alpha.0.tgz#79a31871e8f78bab545075f8d61fed97948427e2"
+  integrity sha512-yvcS+oJxvBy8w8KTAVm/xlOLu7KnDJjO0uJjolCball1sacSUbek99CcI/t8mcntUTRelzE+Zq39g0r1vPW9aA==
+  dependencies:
+    babel-eslint "^10.0.1"
+    eslint-config-prettier "^3.3.0"
+    eslint-config-react-app "^3.0.5"
+    eslint-plugin-flowtype "^3.2.0"
+    eslint-plugin-import "^2.14.0"
+    eslint-plugin-jsx-a11y "^6.1.2"
+    eslint-plugin-prettier "^3.0.0"
+    eslint-plugin-react "^7.11.1"
+    prettier "^1.15.2"
+
 "@vaporweb/eslint-config-vaporweb@^0.0.14-alpha.0":
   version "0.0.14-alpha.0"
   resolved "https://registry.yarnpkg.com/@vaporweb/eslint-config-vaporweb/-/eslint-config-vaporweb-0.0.14-alpha.0.tgz#7d5ab4d5a2314cea2616cbae529463ab9813363b"
