@@ -1,0 +1,31 @@
+{
+  "name": "vaporweb-app-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "app develop",
+    "build": "app build",
+    "test": "app test",
+    "lint": "app lint"
+  },
+  "eslintConfig": {
+    "extends": "@vaporweb/eslint-config-vaporweb"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  },
+  "browserslist": [
+    ">1%", 
+    "not ie 11", 
+    "not op_mini all"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}
