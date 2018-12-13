@@ -1,6 +1,6 @@
 {
   "name": "@vaporweb/app",
-  "version": "0.0.14-alpha.0",
+  "version": "0.0.19-alpha.0",
   "description": "",
   "bin": {
     "app": "./bin/app.js"
