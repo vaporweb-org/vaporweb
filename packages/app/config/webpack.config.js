@@ -101,7 +101,11 @@ export default () => {
             filename: 'server.js',
           },
           target: 'node',
-          externals: [nodeExternals()],
+          externals: [
+            nodeExternals({
+              whitelist: ['webpack/hot/poll?300'],
+            }),
+          ],
           plugins: [
             new WebpackBar({
               color: '#c065f4',
