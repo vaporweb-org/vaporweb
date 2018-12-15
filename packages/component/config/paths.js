@@ -20,6 +20,7 @@ const tsConfig = path.resolve(rootPath, 'tsconfig.json');
 const customConfig = path.resolve(rootPath, '.component.js');
 
 export default {
+  src,
   entry,
   pkg,
   customConfig,

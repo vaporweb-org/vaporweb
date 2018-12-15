@@ -10,6 +10,7 @@ import App from './components/App';
 const client = new ApolloClient({
   link: createHttpLink({
     uri: 'http://localhost:3010',
+
     credentials: 'same-origin',
   }),
   cache: new InMemoryCache(),

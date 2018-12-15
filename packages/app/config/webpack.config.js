@@ -12,10 +12,7 @@ export default () => {
   const mode = process.env.NODE_ENV || 'development';
   const isProd = mode === 'production';
   const isDev = mode === 'development';
-
-  const __PORT__ = '3000';
-
-  const devServerPort = parseInt(__PORT__, 10) + 1;
+  const devServerPort = parseInt(appConfig.port, 10) + 1;
   const clientPublicPath = isDev ? `http://localhost:${devServerPort}/` : '/';
 
   const baseConfig = {
@@ -29,11 +26,11 @@ export default () => {
           exclude: /node_modules/,
           include: [paths.src],
           use: {
-            loader: 'babel-loader',
+            loader: require.resolve('babel-loader'),
             options: {
               babelrc: false,
               configFile: false,
-              presets: ['@vaporweb/babel-preset-vaporweb'],
+              presets: [require.resolve('@vaporweb/babel-preset-vaporweb')],
             },
           },
         },
@@ -60,7 +57,11 @@ export default () => {
         color: '#f56be2',
         name: 'client',
       }),
-      new FriendlyErrorsWebpackPlugin(),
+      new FriendlyErrorsWebpackPlugin({
+        compilationSuccessInfo: {
+          messages: [`Webpack Dev Server is running on port ${devServerPort}`],
+        },
+      }),
       new ManifestPlugin({
         path: paths.output,
         writeToFileEmit: true,
@@ -77,6 +78,7 @@ export default () => {
       watchContentBase: true,
       port: devServerPort,
       contentBase: paths.clientOutput,
+      allowedHosts: [],
       quiet: true,
       watchOptions: {
         ignored: /node_modules/,

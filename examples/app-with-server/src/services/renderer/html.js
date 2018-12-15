@@ -15,7 +15,7 @@ export function footer({ assets, data }) {
           <script>
             window.__APOLLO_STATE__ = ${JSON.stringify(data)};
           </script>
-          <script src=${assets['client.js']}></script>
+          <script src="${assets['client.js']}"></script>
         </body>
       </html>
   `;

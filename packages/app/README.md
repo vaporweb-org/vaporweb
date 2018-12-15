@@ -44,6 +44,10 @@ You can modify the config by placing a .app.js file in the root of your project.
         // ...
       }
 
+      if (target === 'server' && env === 'production') {
+        // ...
+      }
+
       return config;
     },
   }

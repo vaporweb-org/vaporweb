@@ -26,7 +26,7 @@ clientCompiler.plugin('done', () => {
 
 const devServer = new WebpackDevServer(clientCompiler, client.devServer);
 
-devServer.listen(3001, err => {
+devServer.listen(client.devServer.port, client.devServer.host, err => {
   if (err) {
     console.error(err);
   }

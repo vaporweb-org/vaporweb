@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path';
 
 import paths from './paths';
 
@@ -9,6 +8,7 @@ let config = {
   tsc: false,
   tslint: false,
   server: false,
+  port: process.env.PORT || 3000,
   webpack: (cfg, { target, env }) => cfg,
 };
 

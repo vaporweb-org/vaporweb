@@ -1,6 +1,7 @@
 module.exports = vaporwebConfig => {
   let config = {
-    rootDir: process.env.PWD,
+    rootDir: process.cwd(),
+    testEnvironment: 'jsdom',
   };
 
   if (vaporwebConfig.babel && !vaporwebConfig.tsc) {

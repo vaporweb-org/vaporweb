@@ -4,11 +4,12 @@ import app from './server';
 let currentApp = app;
 
 const server = http.createServer(currentApp);
+const port = process.env.PORT || 3000;
 
-server.listen(3000);
+server.listen(port);
 
 server.on('listening', () => {
-  console.info(`🚀  Started on port ${3000}`);
+  console.info(`🚀  Started on port ${port}`);
 });
 
 server.on('error', err => {

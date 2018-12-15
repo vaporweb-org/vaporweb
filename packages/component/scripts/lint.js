@@ -1,14 +1,17 @@
 import { spawnSync } from 'child_process';
 
 import config from '../config/component.config.js';
+import paths from '../config/paths';
 
 const eslint =
   config.eslint &&
   spawnSync(
     require.resolve('.bin/eslint'),
-    ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), 'src'].concat(
-      process.argv.slice(2)
-    ),
+    [
+      '-c',
+      require.resolve('@vaporweb/eslint-config-vaporweb'),
+      paths.src,
+    ].concat(process.argv.slice(2)),
     {
       stdio: 'inherit',
     }
@@ -21,7 +24,8 @@ const tslint =
     [
       '-c',
       require.resolve('@vaporweb/tslint-config-vaporweb'),
-      'src/**',
+      `${paths.src}/**/*.ts`,
+      `${paths.src}/**/*.tsx`,
     ].concat(process.argv.slice(2)),
     {
       stdio: 'inherit',
