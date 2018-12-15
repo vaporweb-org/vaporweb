@@ -1,5 +1,5 @@
 import jest from 'jest';
-import jestConfigVaporweb from '@vaporweb/jest-config-vaporweb';
+import jestConfigVaporweb from '@vaporweb/jest-config';
 
 import paths from '../config/paths';
 import appConfig from '../config/app.config.js';

@@ -6,7 +6,7 @@ const useTypeScript = fs.existsSync('tsconfig.json');
 const eslint = () =>
   spawnSync(
     require.resolve('.bin/eslint'),
-    ['-c', require.resolve('@vaporweb/eslint-config-vaporweb'), '.'].concat(
+    ['-c', require.resolve('@vaporweb/eslint-config'), '.'].concat(
       process.argv.slice(2)
     ),
     {
@@ -17,12 +17,9 @@ const eslint = () =>
 const tslint = () =>
   spawnSync(
     require.resolve('.bin/tslint'),
-    [
-      '-c',
-      require.resolve('@vaporweb/tslint-config-vaporweb'),
-      '--project',
-      '.',
-    ].concat(process.argv.slice(2)),
+    ['-c', require.resolve('@vaporweb/tslint-config'), '--project', '.'].concat(
+      process.argv.slice(2)
+    ),
     {
       stdio: 'inherit',
     }

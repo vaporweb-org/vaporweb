@@ -1,10 +1,10 @@
-module.exports = vaporwebConfig => {
+module.exports = ({ tsc, babel }) => {
   let config = {
     rootDir: process.cwd(),
     testEnvironment: 'jsdom',
   };
 
-  if (vaporwebConfig.babel && !vaporwebConfig.tsc) {
+  if (babel && !tsc) {
     config = {
       ...config,
       moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx'],
@@ -21,20 +21,20 @@ module.exports = vaporwebConfig => {
     };
   }
 
-  if (vaporwebConfig.tsc && !vaporwebConfig.babel) {
+  if (tsc && !babel) {
     config = {
       ...config,
       preset: 'ts-jest',
     };
   }
 
-  if (vaporwebConfig.tsc && vaporwebConfig.babel) {
+  if (tsc && babel) {
     config = {
       ...config,
       preset: 'ts-jest/presets/js-with-babel',
       globals: {
         'ts-jest': {
-          babelConfig: require('@vaporweb/babel-preset-vaporweb'),
+          babelConfig: require('@vaporweb/babel-preset'),
         },
       },
     };

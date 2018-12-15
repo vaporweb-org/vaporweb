@@ -30,7 +30,7 @@ export default () => {
             options: {
               babelrc: false,
               configFile: false,
-              presets: [require.resolve('@vaporweb/babel-preset-vaporweb')],
+              presets: [require.resolve('@vaporweb/babel-preset')],
             },
           },
         },

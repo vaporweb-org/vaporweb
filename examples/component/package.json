@@ -12,7 +12,7 @@
     "lint": "component lint"
   },
   "eslintConfig": {
-    "extends": "@vaporweb/eslint-config-vaporweb"
+    "extends": "@vaporweb/eslint-config"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -30,6 +30,6 @@
     "react-dom": "16.6.3"
   },
   "devDependencies": {
-    "@vaporweb/component": "^0.0.14-alpha.0"
+    "@vaporweb/component": "^0.0.20-alpha.0"
   }
 }

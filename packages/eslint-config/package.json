@@ -1,5 +1,5 @@
 {
-  "name": "@vaporweb/eslint-config-vaporweb",
+  "name": "@vaporweb/eslint-config",
   "version": "0.0.20-alpha.0",
   "main": "index.js",
   "files": [

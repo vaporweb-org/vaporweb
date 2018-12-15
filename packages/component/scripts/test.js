@@ -1,6 +1,6 @@
 import path from 'path';
 import jest from 'jest';
-import jestConfigVaporweb from '@vaporweb/jest-config-vaporweb';
+import jestConfigVaporweb from '@vaporweb/jest-config';
 
 import componentConfig from '../config/component.config.js';
 

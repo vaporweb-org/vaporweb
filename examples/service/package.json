@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "eslintConfig": {
-    "extends": "@vaporweb/eslint-config-vaporweb"
+    "extends": "@vaporweb/eslint-config"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -27,6 +27,6 @@
     "graphql": "14.0.2"
   },
   "devDependencies": {
-    "@vaporweb/service": "^0.0.14-alpha.0"
+    "@vaporweb/service": "^0.0.20-alpha.0"
   }
 }

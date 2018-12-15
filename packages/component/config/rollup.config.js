@@ -34,12 +34,12 @@ export default function config() {
         }),
         componentConfig.eslint &&
           eslint({
-            configFile: require.resolve('@vaporweb/eslint-config-vaporweb'),
+            configFile: require.resolve('@vaporweb/eslint-config'),
             include: ['src/**/*.js', 'src/**/*.jsx'],
           }),
         componentConfig.tslint &&
           tslint({
-            configuration: require.resolve('@vaporweb/tslint-config-vaporweb'),
+            configuration: require.resolve('@vaporweb/tslint-config'),
             include: ['src/**/*.ts', 'src/**/*.tsx'],
           }),
         componentConfig.tsc && typescript(),
@@ -49,7 +49,7 @@ export default function config() {
             configFile: false,
             exclude: '/node_modules/**',
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
-            presets: [require.resolve('@vaporweb/babel-preset-vaporweb')],
+            presets: [require.resolve('@vaporweb/babel-preset')],
           }),
       ].filter(Boolean),
       watch: {

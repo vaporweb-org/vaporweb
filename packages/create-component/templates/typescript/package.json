@@ -15,7 +15,7 @@
   "author": "",
   "license": "MIT",
   "eslintConfig": {
-    "extends": "@vaporweb/eslint-config-vaporweb"
+    "extends": "@vaporweb/eslint-config"
   },
   "prettier": {
     "trailingComma": "es5",

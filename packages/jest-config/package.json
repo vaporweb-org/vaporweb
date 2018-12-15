@@ -1,5 +1,5 @@
 {
-  "name": "@vaporweb/jest-config-vaporweb",
+  "name": "@vaporweb/jest-config",
   "version": "0.0.20-alpha.0",
   "main": "index.js",
   "files": [
@@ -15,7 +15,7 @@
   "description": "",
   "peerDependencies": {
     "@babel/core": "7.x",
-    "@vaporweb/babel-preset-vaporweb": "0.x",
+    "@vaporweb/babel-preset": "0.x",
     "babel-core": "7.x",
     "babel-jest": "23.x",
     "jest": "23.x"

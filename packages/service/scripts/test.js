@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import jest from 'jest';
-import jestConfigVaporweb from '@vaporweb/jest-config-vaporweb';
+import jestConfigVaporweb from '@vaporweb/jest-config';
 
 const useTypeScript = fs.existsSync('tsconfig.json');
 
