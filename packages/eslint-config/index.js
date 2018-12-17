@@ -16,6 +16,9 @@ module.exports = {
     sourceType: 'module',
   },
   root: true,
+  rules: {
+    'jsx-quotes': ['error', 'prefer-double'],
+  },
   settings: {
     react: {
       version: '999.999.999',

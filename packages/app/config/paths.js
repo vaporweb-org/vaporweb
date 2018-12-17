@@ -26,11 +26,12 @@ const moduleFileExtensions = [
   'jsx',
 ];
 
-// Resolve file paths in the same order as webpack
-const resolveExt = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find(extension =>
-    fs.existsSync(resolveFn(`${filePath}.${extension}`))
-  );
+const configFileExtensions = ['js', 'yaml', 'yml', 'json', ''];
+
+const resolveModule = (resolveFn, filePath, extended) => {
+  const extension = moduleFileExtensions
+    .concat(extended ? configFileExtensions : [])
+    .find(extension => fs.existsSync(resolveFn(`${filePath}.${extension}`)));
 
   if (extension) {
     return resolveFn(`${filePath}.${extension}`);
@@ -42,12 +43,14 @@ const resolveExt = (resolveFn, filePath) => {
 export default {
   src: resolveApp('src'),
   publicPath: resolveApp('public'),
-  entry: resolveExt(resolveApp, 'src/index'),
+  entry: resolveModule(resolveApp, 'src/index'),
   output: resolveApp('dist'),
-  clientEntry: resolveExt(resolveApp, 'src/client'),
+  clientEntry: resolveModule(resolveApp, 'src/client'),
   clientOutput: resolveApp('dist/public'),
   appManifest: resolveApp('dist/public/manifest.json'),
   pkg: resolveRoot('package.json'),
   customConfig: resolveApp('.app.js'),
   tsConfig: resolveRoot('tsconfig.json'),
+  tslintConfig: resolveModule(resolveRoot, 'tslint', true),
+  eslintConfig: resolveModule(resolveRoot, '.eslintrc', true),
 };

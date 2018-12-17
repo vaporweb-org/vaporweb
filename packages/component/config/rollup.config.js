@@ -1,3 +1,4 @@
+import fs from 'fs';
 import babel from 'rollup-plugin-babel';
 import { eslint } from 'rollup-plugin-eslint';
 import tslint from 'rollup-plugin-tslint';
@@ -14,6 +15,14 @@ export default function config() {
   const pkg = require(paths.pkg);
   const isProd = !process.env.ROLLUP_WATCH;
   const nodeEnv = isProd ? '"production"' : '"development"';
+
+  const eslintConifg = fs.existsSync(paths.eslintConifg)
+    ? paths.eslintConifg
+    : require.resolve('@vaporweb/eslint-config');
+
+  const tslintConifg = fs.existsSync(paths.tslintConifg)
+    ? paths.tslintConifg
+    : require.resolve('@vaporweb/tslint-config');
 
   return componentConfig.rollup(
     {
@@ -34,13 +43,13 @@ export default function config() {
         }),
         componentConfig.eslint &&
           eslint({
-            configFile: require.resolve('@vaporweb/eslint-config'),
-            include: ['src/**/*.js', 'src/**/*.jsx'],
+            configFile: eslintConifg,
+            include: ['src/**/*.js'],
           }),
         componentConfig.tslint &&
           tslint({
-            configuration: require.resolve('@vaporweb/tslint-config'),
-            include: ['src/**/*.ts', 'src/**/*.tsx'],
+            configuration: tslintConifg,
+            include: ['src/**/*.{ts,tsx}'],
           }),
         componentConfig.tsc && typescript(),
         componentConfig.babel &&

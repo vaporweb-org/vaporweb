@@ -1,3 +1,4 @@
+import fs from 'fs';
 import webpack from 'webpack';
 import StartServerPlugin from 'start-server-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
@@ -15,14 +16,30 @@ export default () => {
   const devServerPort = parseInt(appConfig.port, 10) + 1;
   const clientPublicPath = isDev ? `http://localhost:${devServerPort}/` : '/';
 
+  const eslintConifg = fs.existsSync(paths.eslintConifg)
+    ? paths.eslintConifg
+    : require.resolve('@vaporweb/eslint-config');
+
   const baseConfig = {
     mode,
     bail: isProd,
     devtool: isProd ? 'source-map' : 'cheap-eval-sourcemap',
     module: {
       rules: [
+        appConfig.eslint && {
+          enforce: 'pre',
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: require.resolve('eslint-loader'),
+            options: {
+              configFile: eslintConifg,
+              include: ['src/**/*.js'],
+            },
+          },
+        },
         {
-          test: /\.(t|j)sx?$/,
+          test: /\.(js|ts|tsx)$/,
           exclude: /node_modules/,
           include: [paths.src],
           use: {
@@ -34,7 +51,7 @@ export default () => {
             },
           },
         },
-      ],
+      ].filter(Boolean),
     },
     resolve: {
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
