@@ -1,6 +1,6 @@
 {
   "name": "@vaporweb/eslint-config",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.1-alpha.0",
   "main": "index.js",
   "files": [
     "index.js"
@@ -13,8 +13,8 @@
   },
   "description": "",
   "peerDependencies": {
-    "eslint": "5.x",
     "babel-eslint": "10.x",
+    "eslint": "5.x",
     "eslint-plugin-react": "7.x"
   }
 }
