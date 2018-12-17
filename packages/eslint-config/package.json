@@ -13,14 +13,8 @@
   },
   "description": "",
   "peerDependencies": {
+    "eslint": "5.x",
     "babel-eslint": "10.x",
-    "eslint-config-prettier": "3.x",
-    "eslint-config-react-app": "3.x",
-    "eslint-plugin-flowtype": "3.x",
-    "eslint-plugin-import": "2.x",
-    "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-prettier": "3.x",
-    "eslint-plugin-react": "7.x",
-    "prettier": "1.x"
+    "eslint-plugin-react": "7.x"
   }
 }

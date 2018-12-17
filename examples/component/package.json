@@ -11,16 +11,9 @@
     "test": "component test",
     "lint": "component lint"
   },
-  "eslintConfig": {
-    "extends": "@vaporweb/eslint-config"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "singleQuote": true
-  },
   "browserslist": [
-    ">1%", 
-    "not ie 11", 
+    ">1%",
+    "not ie 11",
     "not op_mini all"
   ],
   "author": "",
@@ -30,6 +23,6 @@
     "react-dom": "16.6.3"
   },
   "devDependencies": {
-    "@vaporweb/component": "^0.0.20-alpha.0"
+    "@vaporweb/component": "^0.1.0-alpha.0"
   }
 }

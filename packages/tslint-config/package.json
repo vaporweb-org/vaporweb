@@ -14,9 +14,7 @@
   "description": "",
   "peerDependencies": {
     "tslint": "5.x",
-    "tslint-config-prettier": "1.x",
     "tslint-eslint-rules": "5.x",
-    "tslint-plugin-prettier": "2.x",
     "tslint-react": "3.x",
     "typescript": "3.x"
   }

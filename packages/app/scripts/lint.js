@@ -22,8 +22,7 @@ const tslint =
     [
       '-c',
       require.resolve('@vaporweb/tslint-config'),
-      `${paths.src}/**/*.ts`,
-      `${paths.src}/**/*.tsx`,
+      `${paths.src}/**/*.{ts,tsx}`,
     ].concat(process.argv.slice(2)),
     {
       stdio: 'inherit',

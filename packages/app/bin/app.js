@@ -44,10 +44,6 @@ function run(root, cmd) {
     buildArgs.push(`--root=${root || '.'}`);
   }
 
-  if (script === 'lint') {
-    buildArgs.push(root ? root + '/src' : 'src');
-  }
-
   const result = spawnSync(
     'node',
     nodeArgs

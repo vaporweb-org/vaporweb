@@ -4,14 +4,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "devDependencies": {
-    "@vaporweb/eslint-config-vaporweb": "^0.0.20-alpha.0",
-    "eslint": "^5.9.0",
-    "husky": "^1.2.0",
-    "lerna": "^3.4.3",
-    "lerna-changelog": "^0.8.2",
-    "lint-staged": "^8.1.0"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -21,11 +13,24 @@
     "*.js": [
       "eslint --fix",
       "git add"
+    ],
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "git add"
+    ],
+    "*.{js,ts,tsx,json,md}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "eslintConfig": {
-    "root": true,
-    "extends": "@vaporweb/eslint-config-vaporweb"
+    "extends": [
+      "@vaporweb/eslint-config",
+      "eslint-config-prettier"
+    ],
+    "rules": {
+      "no-console": "off"
+    }
   },
   "prettier": {
     "trailingComma": "es5",
@@ -46,5 +51,19 @@
     "url": "https://github.com/vaporweb-org/vaporweb/issues"
   },
   "homepage": "https://github.com/vaporweb-org/vaporweb#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@vaporweb/eslint-config": "^0.1.0-alpha.0",
+    "@vaporweb/tslint-config": "^0.1.0-alpha.0",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "husky": "^1.2.0",
+    "lerna": "^3.4.3",
+    "lerna-changelog": "^0.8.2",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2"
+  }
 }

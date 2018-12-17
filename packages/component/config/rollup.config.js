@@ -13,7 +13,7 @@ import componentConfig from './component.config.js';
 export default function config() {
   const pkg = require(paths.pkg);
   const isProd = !process.env.ROLLUP_WATCH;
-  const nodeEnv = isProd ? 'production' : 'development';
+  const nodeEnv = isProd ? '"production"' : '"development"';
 
   return componentConfig.rollup(
     {
@@ -25,12 +25,12 @@ export default function config() {
       external: [Object.keys(pkg.peerDependencies || {})],
       plugins: [
         progress(),
+        resolve({ main: true }),
         commonjs({
           include: 'node_modules/**',
         }),
-        resolve(),
         replace({
-          'process.env.NODE_ENV': `${nodeEnv}`,
+          'process.env.NODE_ENV': nodeEnv,
         }),
         componentConfig.eslint &&
           eslint({

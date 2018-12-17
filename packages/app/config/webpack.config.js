@@ -59,7 +59,9 @@ export default () => {
       }),
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
-          messages: [`Webpack Dev Server is running on port ${devServerPort}`],
+          messages: isDev && [
+            `Webpack Dev Server is running on port ${devServerPort}`,
+          ],
         },
       }),
       new ManifestPlugin({
