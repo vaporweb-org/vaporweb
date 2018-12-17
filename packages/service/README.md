@@ -4,13 +4,13 @@
 
 ### `service develop`
 
-Runs the service in development mode and watches for changes. CLI options will be forwarded to [Node.js](https://nodejs.org/). 
+Runs the service in development mode and watches for changes. CLI options will be forwarded to [Node.js](https://nodejs.org/).
 
 [Node.js CLI options](https://nodejs.org/api/cli.html)
 
 ### `service lint`
 
-Runs the linter. 
+Runs the linter.
 
 CLI options will be forwarded to [eslint](https://eslint.org/) or [tslint](https://palantir.github.io/tslint). For example, `service lint --fix`.
 

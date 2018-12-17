@@ -4,7 +4,7 @@
 
 ### `component build`
 
-Builds the project for production. CLI options will be forwarded to [Rollup](https://rollupjs.org/). 
+Builds the project for production. CLI options will be forwarded to [Rollup](https://rollupjs.org/).
 
 [Rollup CLI options](https://rollupjs.org/guide/en#command-line-flags)
 
@@ -12,13 +12,13 @@ Build files are output at the main and module paths set in the project's package
 
 ### `component develop`
 
-Builds the project in development mode and watches for changes. CLI options will be forwarded to [Rollup](https://rollupjs.org/). 
+Builds the project in development mode and watches for changes. CLI options will be forwarded to [Rollup](https://rollupjs.org/).
 
 [Rollup CLI options](https://rollupjs.org/guide/en#command-line-flags)
 
 ### `component lint`
 
-Runs the linter. 
+Runs the linter.
 
 CLI options will be forwarded to [eslint](https://eslint.org/) or [tslint](https://palantir.github.io/tslint). For example, `component lint --fix`.
 

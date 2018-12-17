@@ -5,6 +5,7 @@ Create React component libraries and Node.js services with no configuration.
 ## Overview
 
 ### @vaporweb/component
+
 ```
 npm init @vaporweb/component my-component
 cd my-component
@@ -12,6 +13,7 @@ npm start
 ```
 
 ### @vaporweb/service
+
 ```
 npm init @vaporweb/service my-service
 cd my-service
@@ -25,6 +27,7 @@ Development tools like Babel, Jest, and Rollup are preconfigured and hidden so t
 ## Creating a Component
 
 To create a new component, run the following command:
+
 ```sh
 npm init @vaporweb/component my-component (--typescript)
 ```
@@ -58,7 +61,7 @@ Starts the test runner.
 
 ### `npm run build`
 
-Builds the project for production. 
+Builds the project for production.
 
 ### `npm run lint`
 
@@ -69,6 +72,7 @@ Runs the linter. You can pass the fix param (`npm run lint -- --fix`) to automat
 ## Creating a Service
 
 To create a new service, run the following command:
+
 ```sh
 npm init @vaporweb/service my-service (--typescript)
 ```
@@ -108,5 +112,5 @@ Runs the linter. You can pass the fix param (`npm run lint -- --fix`) to automat
 
 ## Inspiration
 
-* [facebook/create-react-app](https://github.com/facebook/create-react-app/)
-* [jaredpalmer/razzle](https://github.com/jaredpalmer/razzle)
+- [facebook/create-react-app](https://github.com/facebook/create-react-app/)
+- [jaredpalmer/razzle](https://github.com/jaredpalmer/razzle)

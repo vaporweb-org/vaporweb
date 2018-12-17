@@ -4,15 +4,15 @@
 
 ### `app build`
 
-Builds the project for production with [Webpack](https://webpack.js.org/). 
+Builds the project for production with [Webpack](https://webpack.js.org/).
 
 ### `app develop`
 
-Builds the project in development mode and watches for changes. 
+Builds the project in development mode and watches for changes.
 
 ### `app lint`
 
-Runs the linter. 
+Runs the linter.
 
 CLI options will be forwarded to [eslint](https://eslint.org/) or [tslint](https://palantir.github.io/tslint). For example, `app lint --fix`.
 
