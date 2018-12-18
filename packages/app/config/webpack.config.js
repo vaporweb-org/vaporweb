@@ -79,7 +79,7 @@ export default () => {
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
           messages: isDev && [
-            `Webpack Dev Server is running at ${clientPublicPath}`,
+            `Webpack Dev Server is running at ${clientPublicPath}\n\n`,
           ],
         },
         clearConsole: false,
