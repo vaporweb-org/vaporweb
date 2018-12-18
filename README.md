@@ -45,7 +45,7 @@ The initialization script will create a directory called `my-app` inside the cur
 Inside that directory, it will generate the initial project structure and install the dependencies:
 
 ```
-my-component
+my-app
 ├── README.md
 ├── node_modules
 ├── package.json
