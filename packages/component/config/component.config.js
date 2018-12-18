@@ -6,7 +6,10 @@ let config = {
   eslint: true,
   tsc: false,
   tslint: false,
-  rollup: (cfg, { env }) => cfg,
+  resolve: true,
+  commonjs: true,
+  replace: true,
+  rollup: cfg => cfg,
 };
 
 const hasTsConfig = fs.existsSync(paths.tsConfig);

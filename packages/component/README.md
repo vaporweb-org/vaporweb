@@ -44,8 +44,11 @@ You can modify the config by placing a .component.js file in the root of your pr
     eslint: true,
     tsc: false,
     tslint: false,
-    rollup(config) {
-      config.plugins.push(terser())
+    rollup(config, { env }) {
+      // here you can add additional plugins, e.g.
+      // if (env === 'production') {
+      //   config.plugins.push(terser())
+      // }
       return config
     }
   }

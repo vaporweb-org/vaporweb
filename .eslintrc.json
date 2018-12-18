@@ -1,0 +1,7 @@
+{
+  "extends": ["@vaporweb/eslint-config", "plugin:prettier/recommended"],
+  "root": true,
+  "rules": {
+    "no-console": "off"
+  }
+}

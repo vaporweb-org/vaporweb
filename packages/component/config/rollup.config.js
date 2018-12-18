@@ -14,7 +14,7 @@ import componentConfig from './component.config.js';
 export default function config() {
   const pkg = require(paths.pkg);
   const isProd = !process.env.ROLLUP_WATCH;
-  const nodeEnv = isProd ? '"production"' : '"development"';
+  const nodeEnv = isProd ? 'production' : 'development';
 
   const eslintConifg = fs.existsSync(paths.eslintConifg)
     ? paths.eslintConifg
@@ -34,22 +34,31 @@ export default function config() {
       external: [Object.keys(pkg.peerDependencies || {})],
       plugins: [
         progress(),
-        resolve({ main: true }),
-        commonjs({
-          include: 'node_modules/**',
-        }),
-        replace({
-          'process.env.NODE_ENV': nodeEnv,
-        }),
+        componentConfig.resolve &&
+          resolve({
+            ...componentConfig.resolve,
+          }),
+        componentConfig.commonjs &&
+          commonjs({
+            include: 'node_modules/**',
+            ...componentConfig.commonjs,
+          }),
+        componentConfig.replace &&
+          replace({
+            'process.env.NODE_ENV': JSON.stringify(nodeEnv),
+            ...componentConfig.replace,
+          }),
         componentConfig.eslint &&
           eslint({
             configFile: eslintConifg,
             include: ['src/**/*.js'],
+            ...componentConfig.eslint,
           }),
         componentConfig.tslint &&
           tslint({
             configuration: tslintConifg,
             include: ['src/**/*.{ts,tsx}'],
+            ...componentConfig.tslint,
           }),
         componentConfig.tsc && typescript(),
         componentConfig.babel &&
@@ -57,8 +66,9 @@ export default function config() {
             babelrc: false,
             configFile: false,
             exclude: '/node_modules/**',
-            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            extensions: ['.js', '.ts', '.tsx'],
             presets: [require.resolve('@vaporweb/babel-preset')],
+            ...componentConfig.babel,
           }),
       ].filter(Boolean),
       watch: {

@@ -21,23 +21,7 @@
     "*.{json,md}": [
       "prettier --write",
       "git add"
-    ],
-    "yarn.lock": [
-      "git rm --cached"
     ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "@vaporweb/eslint-config",
-      "plugin:prettier/recommended"
-    ],
-    "rules": {
-      "no-console": "off"
-    }
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "singleQuote": true
   },
   "version": "1.0.0",
   "main": "index.js",

@@ -9,7 +9,8 @@ let config = {
   tslint: false,
   server: false,
   port: process.env.PORT || 3000,
-  webpack: (cfg, { target, env }) => cfg,
+  host: process.env.HOST || 'localhost',
+  webpack: cfg => cfg,
 };
 
 const hasTsConfig = fs.existsSync(paths.tsConfig);

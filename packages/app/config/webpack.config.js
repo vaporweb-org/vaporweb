@@ -14,7 +14,9 @@ export default () => {
   const isProd = mode === 'production';
   const isDev = mode === 'development';
   const devServerPort = parseInt(appConfig.port, 10) + 1;
-  const clientPublicPath = isDev ? `http://localhost:${devServerPort}/` : '/';
+  const clientPublicPath = isDev
+    ? `http://${appConfig.host}:${devServerPort}/`
+    : '/';
 
   const eslintConifg = fs.existsSync(paths.eslintConifg)
     ? paths.eslintConifg
@@ -77,7 +79,7 @@ export default () => {
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
           messages: isDev && [
-            `Webpack Dev Server is running on port ${devServerPort}`,
+            `Webpack Dev Server is running at ${clientPublicPath}`,
           ],
         },
       }),
@@ -97,7 +99,8 @@ export default () => {
       watchContentBase: true,
       port: devServerPort,
       contentBase: paths.clientOutput,
-      allowedHosts: [],
+      allowedHosts: [appConfig.host],
+      host: appConfig.host,
       quiet: true,
       watchOptions: {
         ignored: /node_modules/,
@@ -167,7 +170,12 @@ export default () => {
     client: appConfig.webpack(
       {
         ...baseClientConfig,
-        entry: { client: [paths.entry] },
+        entry: {
+          client: [
+            isDev && require.resolve('./webpackHotDevClientOnly'),
+            paths.entry,
+          ].filter(Boolean),
+        },
       },
       { target: 'client', env: mode }
     ),
