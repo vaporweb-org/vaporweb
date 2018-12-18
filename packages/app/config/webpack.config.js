@@ -82,6 +82,7 @@ export default () => {
             `Webpack Dev Server is running at ${clientPublicPath}`,
           ],
         },
+        clearConsole: false,
       }),
       new ManifestPlugin({
         path: paths.output,
@@ -135,7 +136,7 @@ export default () => {
               color: '#c065f4',
               name: 'server',
             }),
-            new FriendlyErrorsWebpackPlugin(),
+            new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
             new webpack.optimize.LimitChunkCountPlugin({
               maxChunks: 1,
             }),
