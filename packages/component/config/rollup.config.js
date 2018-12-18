@@ -16,12 +16,12 @@ export default function config() {
   const isProd = !process.env.ROLLUP_WATCH;
   const nodeEnv = isProd ? 'production' : 'development';
 
-  const eslintConifg = fs.existsSync(paths.eslintConifg)
-    ? paths.eslintConifg
+  const eslintConfig = fs.existsSync(paths.eslintConfig)
+    ? paths.eslintConfig
     : require.resolve('@vaporweb/eslint-config');
 
-  const tslintConifg = fs.existsSync(paths.tslintConifg)
-    ? paths.tslintConifg
+  const tslintConfig = fs.existsSync(paths.tslintConfig)
+    ? paths.tslintConfig
     : require.resolve('@vaporweb/tslint-config');
 
   return componentConfig.rollup(
@@ -50,13 +50,13 @@ export default function config() {
           }),
         componentConfig.eslint &&
           eslint({
-            configFile: eslintConifg,
+            configFile: eslintConfig,
             include: ['src/**/*.js'],
             ...componentConfig.eslint,
           }),
         componentConfig.tslint &&
           tslint({
-            configuration: tslintConifg,
+            configuration: tslintConfig,
             include: ['src/**/*.{ts,tsx}'],
             ...componentConfig.tslint,
           }),
