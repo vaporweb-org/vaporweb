@@ -21,6 +21,9 @@
     "*.{json,md}": [
       "prettier --write",
       "git add"
+    ],
+    "yarn.lock": [
+      "git rm --cached"
     ]
   },
   "version": "1.0.0",

@@ -1,15 +1,24 @@
+import fs from 'fs';
 import { spawnSync } from 'child_process';
 
 import config from '../config/app.config';
 import paths from '../config/paths';
 
+let eslintConfig = require.resolve('@vaporweb/eslint-config');
+if (fs.existsSync(paths.eslintConfig)) {
+  eslintConfig = paths.eslintConfig;
+}
+
+let tslintConfig = require.resolve('@vaporweb/tslint-config');
+if (fs.existsSync(paths.tslintConfig)) {
+  tslintConfig = paths.tslintConfig;
+}
+
 const eslint =
   config.eslint &&
   spawnSync(
     require.resolve('.bin/eslint'),
-    ['-c', require.resolve('@vaporweb/eslint-config'), paths.src].concat(
-      process.argv.slice(2)
-    ),
+    ['-c', eslintConfig, paths.src].concat(process.argv.slice(2)),
     {
       stdio: 'inherit',
     }
@@ -19,11 +28,9 @@ const tslint =
   config.tslint &&
   spawnSync(
     require.resolve('.bin/tslint'),
-    [
-      '-c',
-      require.resolve('@vaporweb/tslint-config'),
-      `${paths.src}/**/*.{ts,tsx}`,
-    ].concat(process.argv.slice(2)),
+    ['-c', tslintConfig, `${paths.src}/**/*.{ts,tsx}`].concat(
+      process.argv.slice(2)
+    ),
     {
       stdio: 'inherit',
     }
