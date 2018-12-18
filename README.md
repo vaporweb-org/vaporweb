@@ -4,6 +4,14 @@ Create React component libraries and Node.js services with no configuration.
 
 ## Overview
 
+### @vaporweb/app
+
+```
+npm init @vaporweb/app my-app
+cd my-app
+npm start
+```
+
 ### @vaporweb/component
 
 ```
@@ -22,7 +30,57 @@ npm start
 
 ### Get Started Immediately
 
-Development tools like Babel, Jest, and Rollup are preconfigured and hidden so that you can focus on the code.
+Development tools like Babel, Jest, Rollup, and Webpack are preconfigured and hidden so that you can focus on the code.
+
+## Creating an App
+
+To create a new app, run the following command:
+
+```sh
+npm init @vaporweb/app my-app (--typescript)
+```
+
+The initialization script will create a directory called `my-app` inside the current folder.
+
+Inside that directory, it will generate the initial project structure and install the dependencies:
+
+```
+my-component
+├── README.md
+├── node_modules
+├── package.json
+├── (tsconfig.json)
+├── (tslint.json)
+├── .gitignore
+├── public
+|   └── favicon.ico
+|   └── index.html
+└── src
+    ├── components
+    |   └── App.js (App.tsx)
+    ├── index.js (index.tsx)
+    └── index.test.js (index.test.tsx)
+```
+
+Inside the newly created project, you can run some built-in commands:
+
+### `npm start`
+
+Stars the project in development mode.
+
+### `npm test`
+
+Starts the test runner.
+
+### `npm run build`
+
+Builds the project for production.
+
+### `npm run lint`
+
+Runs the linter. You can pass the fix param (`npm run lint -- --fix`) to automatically fix lint errors.
+
+[Read more about @vaporweb/app here.](/packages/app/README.md)
 
 ## Creating a Component
 
@@ -45,8 +103,8 @@ my-component
 ├── (tslint.json)
 ├── .gitignore
 └── src
-    ├── index.jsx (index.tsx)
-    └── index.test.jsx (index.test.jsx)
+    ├── index.js (index.tsx)
+    └── index.test.js (index.test.tsx)
 ```
 
 Inside the newly created project, you can run some built-in commands:
