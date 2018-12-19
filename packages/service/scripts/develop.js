@@ -1,15 +1,14 @@
 import fs from 'fs';
-import path from 'path';
 import { spawnSync } from 'child_process';
 
-const rootDir = process.cwd();
-const useTypeScript = fs.existsSync(path.resolve(rootDir, 'tsconfig.json'));
-const packageJson = require(path.resolve(rootDir, 'package.json'));
+import paths from '../config/paths';
+
+const useTypeScript = fs.existsSync(paths.tsConfig);
 
 const nodemon = () =>
   spawnSync(
     require.resolve('.bin/nodemon'),
-    ['-r', 'esm'].concat(process.argv.slice(2), packageJson.main),
+    ['-r', 'esm'].concat(process.argv.slice(2), paths.entry),
     {
       stdio: 'inherit',
     }
@@ -18,7 +17,7 @@ const nodemon = () =>
 const tsNodeDev = () =>
   spawnSync(
     require.resolve('.bin/ts-node-dev'),
-    process.argv.slice(2).concat('--', packageJson.main),
+    process.argv.slice(2).concat('--', paths.entry),
     {
       stdio: 'inherit',
     }

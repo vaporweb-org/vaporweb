@@ -1,16 +1,16 @@
 import fs from 'fs';
-import path from 'path';
 import jest from 'jest';
 import jestConfigVaporweb from '@vaporweb/jest-config';
 
-const useTypeScript = fs.existsSync('tsconfig.json');
+import paths from '../config/paths';
 
-const appPackageJson = path.resolve(process.cwd(), 'package.json');
+const useTypeScript = fs.existsSync(paths.tsConfig);
+
 const config = JSON.stringify({
   ...jestConfigVaporweb({
     tsc: useTypeScript,
   }),
-  ...require(appPackageJson).jest,
+  ...require(paths.pkg).jest,
 });
 
 const argv = ['-c', config].concat(process.argv.slice(2));

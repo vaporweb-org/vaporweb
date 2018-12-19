@@ -1,7 +1,9 @@
 import fs from 'fs';
 import { spawnSync } from 'child_process';
 
-const useTypeScript = fs.existsSync('tsconfig.json');
+import paths from '../config/paths';
+
+const useTypeScript = fs.existsSync(paths.tsConfig);
 
 const eslint = () =>
   spawnSync(

@@ -4,15 +4,13 @@ import { spawnSync } from 'child_process';
 import config from '../config/component.config.js';
 import paths from '../config/paths';
 
-let eslintConfig = require.resolve('@vaporweb/eslint-config');
-if (fs.existsSync(paths.eslintConfig)) {
-  eslintConfig = paths.eslintConfig;
-}
+const eslintConfig = fs.existsSync(paths.eslintConfig)
+  ? paths.eslintConfig
+  : require.resolve('@vaporweb/eslint-config');
 
-let tslintConfig = require.resolve('@vaporweb/tslint-config');
-if (fs.existsSync(paths.tslintConfig)) {
-  tslintConfig = paths.tslintConfig;
-}
+const tslintConfig = fs.existsSync(paths.tslintConfig)
+  ? paths.tslintConfig
+  : require.resolve('@vaporweb/eslint-config');
 
 const eslint =
   config.eslint &&

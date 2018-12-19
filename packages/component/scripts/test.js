@@ -1,13 +1,12 @@
-import path from 'path';
 import jest from 'jest';
 import jestConfigVaporweb from '@vaporweb/jest-config';
 
+import paths from '../config/paths';
 import componentConfig from '../config/component.config.js';
 
-const packageJson = path.resolve(process.cwd(), 'package.json');
 const config = JSON.stringify({
   ...jestConfigVaporweb(componentConfig),
-  ...require(packageJson).jest,
+  ...require(paths.pkg).jest,
 });
 
 const argv = ['-c', config].concat(process.argv.slice(2));
