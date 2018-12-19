@@ -39,19 +39,19 @@ function run(root, cmd) {
   const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
   const forwardArgs = args.slice(scriptIndex + (root ? 2 : 1));
 
-  const buildArgs = [];
-  if (script === 'build' || script === 'develop') {
-    buildArgs.push(`--root=${root || '.'}`);
-  }
-
   const result = spawnSync(
     'node',
     nodeArgs
       .concat('-r', require.resolve('esm'))
       .concat(require.resolve('../scripts/' + script))
-      .concat(forwardArgs)
-      .concat(buildArgs),
-    { stdio: 'inherit' }
+      .concat(forwardArgs),
+    {
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        VW_APP_ROOT: root || '.',
+      },
+    }
   );
 
   if (result.signal) {

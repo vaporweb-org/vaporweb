@@ -18,8 +18,8 @@ export default () => {
     ? `http://${appConfig.host}:${devServerPort}/`
     : '/';
 
-  const eslintConifg = fs.existsSync(paths.eslintConifg)
-    ? paths.eslintConifg
+  const eslintConfig = fs.existsSync(paths.eslintConfig)
+    ? paths.eslintConfig
     : require.resolve('@vaporweb/eslint-config');
 
   const baseConfig = {
@@ -35,7 +35,7 @@ export default () => {
           use: {
             loader: require.resolve('eslint-loader'),
             options: {
-              configFile: eslintConifg,
+              configFile: eslintConfig,
               include: ['src/**/*.js'],
             },
           },

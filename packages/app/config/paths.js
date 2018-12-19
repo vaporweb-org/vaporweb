@@ -1,14 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import commander from 'commander';
-
-const argv = commander
-  .option('--root <dir>')
-  .allowUnknownOption()
-  .parse(process.argv);
 
 const rootPath = path.resolve(process.cwd());
-const appPath = fs.realpathSync(argv.root || process.cwd());
+const appPath = fs.realpathSync(process.env.VW_APP_ROOT || process.cwd());
 const resolveRoot = relativePath => path.resolve(rootPath, relativePath);
 const resolveApp = relativePath => path.resolve(appPath, relativePath);
 
