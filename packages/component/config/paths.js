@@ -2,9 +2,12 @@ import fs from 'fs';
 import path from 'path';
 
 const rootPath = path.resolve(process.cwd());
-// const appPath = fs.realpathSync(argv.root || process.cwd());
+const componentPath = fs.realpathSync(
+  process.VM_COMPONENT_PATH || process.cwd()
+);
 const resolveRoot = relativePath => path.resolve(rootPath, relativePath);
-// const resolveApp = relativePath => path.resolve(appPath, relativePath);
+const resolveComponent = relativePath =>
+  path.resolve(componentPath, relativePath);
 
 const moduleFileExtensions = [
   'web.mjs',
@@ -37,10 +40,10 @@ const resolveModule = (resolveFn, filePath, extended) => {
 const packageJson = require(resolveRoot('package.json'));
 
 export default {
-  src: resolveRoot('src'),
-  entry: resolveModule(resolveRoot, 'src/index'),
+  src: resolveComponent('src'),
+  entry: resolveModule(resolveComponent, 'src/index'),
   pkg: resolveRoot('package.json'),
-  customConfig: resolveRoot('.component.js'),
+  customConfig: resolveComponent('.component.js'),
   tsConfig: resolveRoot('tsconfig.json'),
   cjsOut: packageJson.main,
   esmOut: packageJson.module,

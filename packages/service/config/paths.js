@@ -2,7 +2,9 @@ import fs from 'fs';
 import path from 'path';
 
 const rootPath = path.resolve(process.cwd());
+const servicePath = path.resolve(process.env.VW_SERVICE_ROOT || process.cwd());
 const resolveRoot = relativePath => path.resolve(rootPath, relativePath);
+const resolveService = relativePath => path.resolve(servicePath, relativePath);
 
 const moduleFileExtensions = [
   'web.mjs',
@@ -35,7 +37,7 @@ const resolveModule = (resolveFn, filePath, extended) => {
 const packageJson = require(resolveRoot('package.json'));
 
 export default {
-  entry: packageJson.main || resolveModule(resolveRoot, 'index'),
+  entry: packageJson.main || resolveModule(resolveService, 'index'),
   pkg: resolveRoot('package.json'),
   tsConfig: resolveRoot('tsconfig.json'),
   tslintConfig: resolveModule(resolveRoot, 'tslint', true),
