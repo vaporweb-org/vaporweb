@@ -173,7 +173,7 @@ export default () => {
         ...baseClientConfig,
         entry: {
           client: [
-            isDev && require.resolve('./webpackHotDevClientOnly'),
+            isDev && require.resolve('react-dev-utils/webpackHotDevClient'),
             paths.entry,
           ].filter(Boolean),
         },
