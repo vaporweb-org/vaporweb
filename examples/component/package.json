@@ -23,6 +23,6 @@
     "react-dom": "16.6.3"
   },
   "devDependencies": {
-    "@vaporweb/component": "^0.1.9-alpha.0"
+    "@vaporweb/component": "^0.1.10-alpha.0"
   }
 }

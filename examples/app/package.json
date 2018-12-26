@@ -25,7 +25,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@vaporweb/app": "^0.1.9-alpha.0",
+    "@vaporweb/app": "^0.1.10-alpha.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   }
