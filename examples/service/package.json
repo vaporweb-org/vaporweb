@@ -27,6 +27,6 @@
     "graphql": "14.0.2"
   },
   "devDependencies": {
-    "@vaporweb/service": "^0.1.1-alpha.0"
+    "@vaporweb/service": "^0.1.9-alpha.0"
   }
 }
