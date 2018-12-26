@@ -24,8 +24,14 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@vaporweb/app": "^0.1.10-alpha.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "@types/webpack-env": "^1.13.6",
+    "@vaporweb/app": "^0.1.10-alpha.0"
   }
 }

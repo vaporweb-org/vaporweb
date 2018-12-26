@@ -47,7 +47,8 @@ if (program.typescript) {
     '@types/react',
     '@types/react-dom',
     '@types/node',
-    '@types/jest'
+    '@types/jest',
+    '@types/webpack-env'
   );
 }
 
