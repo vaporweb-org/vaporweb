@@ -68,7 +68,6 @@ export default function config() {
             exclude: '/node_modules/**',
             extensions: ['.js', '.ts', '.tsx'],
             presets: [require.resolve('@vaporweb/babel-preset')],
-            ...componentConfig.babel,
           }),
       ].filter(Boolean),
       watch: {

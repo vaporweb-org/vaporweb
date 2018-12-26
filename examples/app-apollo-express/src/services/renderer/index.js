@@ -3,6 +3,7 @@ import { getDataFromTree } from 'react-apollo';
 
 import { header, footer } from './html';
 
+/* eslint-disable-next-line no-unused-vars */
 export async function render(Root, { client, req, res }) {
   res.write(header());
 

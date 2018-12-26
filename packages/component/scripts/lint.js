@@ -26,12 +26,9 @@ const tslint =
   config.tslint &&
   spawnSync(
     require.resolve('.bin/tslint'),
-    [
-      '-c',
-      tslintConfig,
-      `${paths.src}/**/*.ts`,
-      `${paths.src}/**/*.tsx`,
-    ].concat(process.argv.slice(2)),
+    ['-c', tslintConfig, `${paths.src}/**/*.{ts,tsx}`].concat(
+      process.argv.slice(2)
+    ),
     {
       stdio: 'inherit',
     }

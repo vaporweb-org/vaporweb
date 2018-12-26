@@ -3,7 +3,7 @@ import path from 'path';
 
 const rootPath = path.resolve(process.cwd());
 const componentPath = fs.realpathSync(
-  process.VM_COMPONENT_PATH || process.cwd()
+  process.env.VW_COMPONENT_ROOT || process.cwd()
 );
 const resolveRoot = relativePath => path.resolve(rootPath, relativePath);
 const resolveComponent = relativePath =>

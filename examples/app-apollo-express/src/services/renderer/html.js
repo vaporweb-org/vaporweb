@@ -6,7 +6,10 @@ export function header() {
     <html lang="en">
       <head> </head>
       <body>
-        <div id="root">`; // eslint-disable-line
+        <div id="root"></div>
+      </body>
+    </html>
+  `; // eslint-disable-line
 }
 
 export function footer({ assets, data }) {
