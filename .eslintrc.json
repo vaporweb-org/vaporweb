@@ -1,5 +1,5 @@
 {
-  "extends": ["@vaporweb/eslint-config", "plugin:prettier/recommended"],
+  "extends": ["@vaporweb/eslint-config", "prettier", "prettier/react"],
   "root": true,
   "rules": {
     "no-console": "off"

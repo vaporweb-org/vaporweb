@@ -18,7 +18,7 @@
       "tslint --fix",
       "git add"
     ],
-    "*.{json,md}": [
+    "*.{js,ts,tsx,json,md}": [
       "prettier --write",
       "git add"
     ],
@@ -47,7 +47,6 @@
     "@vaporweb/tslint-config": "^0.1.1-alpha.0",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-prettier": "^3.0.0",
     "husky": "^1.2.0",
     "lerna": "^3.4.3",
     "lerna-changelog": "^0.8.2",
@@ -55,7 +54,6 @@
     "prettier": "^1.15.3",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",
-    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.2.2"
   }
 }

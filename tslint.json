@@ -1,7 +1,3 @@
 {
-  "extends": ["@vaporweb/tslint-config", "tslint-config-prettier"],
-  "rulesDirectory": ["tslint-plugin-prettier"],
-  "rules": {
-    "prettier": true
-  }
+  "extends": ["@vaporweb/tslint-config", "tslint-config-prettier"]
 }
