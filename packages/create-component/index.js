@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import execa from 'execa';
 import fs from 'fs-extra';
 import path from 'path';
+import sortPackageJson from 'sort-package-json';
 
 import packageJson from './package.json';
 
@@ -49,14 +50,14 @@ function createProject(directory, cmd) {
     const packageJson = fs.readJsonSync(packageJsonPath);
     fs.outputJsonSync(
       packageJsonPath,
-      {
+      sortPackageJson({
         ...existingPackageJson,
         scripts: packageJson.scripts,
         browser: packageJson.browser,
         main: packageJson.main,
         module: packageJson.module,
         browserslist: packageJson.browserslist,
-      },
+      }),
       { spaces: 2 }
     );
   }
