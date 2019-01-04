@@ -4,13 +4,13 @@ import StartServerPlugin from 'start-server-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import WebpackBar from 'webpackbar';
-import ManifestPlugin from 'webpack-manifest-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin';
 import ModuleScopePlugin from 'react-dev-utils/ModuleScopePlugin';
 import ModuleNotFoundPlugin from 'react-dev-utils/ModuleNotFoundPlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import AssetsPlugin from 'assets-webpack-plugin';
 
 import paths from './paths';
 import appConfig from './app.config';
@@ -61,13 +61,6 @@ export default () => {
         },
       ].filter(Boolean),
     },
-    plugins: [
-      isDev && new CaseSensitivePathsPlugin(),
-      new ModuleNotFoundPlugin(paths.appPath),
-      new webpack.DefinePlugin({
-        'process.env.VW_APP_MANIFEST': JSON.stringify(paths.appManifest),
-      }),
-    ].filter(Boolean),
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
       plugins: [new ModuleScopePlugin(paths.src, [paths.appModules])],
@@ -86,8 +79,23 @@ export default () => {
     },
     target: 'web',
     plugins: [
-      ...baseConfig.plugins,
       new WatchMissingNodeModulesPlugin(paths.appModules),
+      isDev && new CaseSensitivePathsPlugin(),
+      new ModuleNotFoundPlugin(paths.appPath),
+      new webpack.DefinePlugin({
+        'process.env.VW_APP_MANIFEST': JSON.stringify(paths.appManifest),
+      }),
+      new AssetsPlugin({
+        path: paths.output,
+        filename: 'manifest.json',
+        manifestFirst: true,
+        prettyPrint: true,
+      }),
+      isDev &&
+        new webpack.HotModuleReplacementPlugin({
+          multiStep: true,
+        }),
+      isDev && new webpack.NamedModulesPlugin(),
       new WebpackBar({
         color: '#f56be2',
         name: 'client',
@@ -100,16 +108,6 @@ export default () => {
         },
         clearConsole: false,
       }),
-      new ManifestPlugin({
-        path: paths.output,
-        writeToFileEmit: true,
-        filename: 'manifest.json',
-      }),
-      isDev &&
-        new webpack.HotModuleReplacementPlugin({
-          multiStep: true,
-        }),
-      isDev && new webpack.NamedModulesPlugin(),
     ].filter(Boolean),
     optimization: isProd
       ? {
@@ -170,12 +168,12 @@ export default () => {
             }),
           ],
           plugins: [
-            ...baseConfig.plugins,
-            new WebpackBar({
-              color: '#c065f4',
-              name: 'server',
+            isDev && new CaseSensitivePathsPlugin(),
+            new ModuleNotFoundPlugin(paths.appPath),
+            new webpack.DefinePlugin({
+              'process.env.VW_APP_MANIFEST': JSON.stringify(paths.appManifest),
             }),
-            new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
+
             new webpack.optimize.LimitChunkCountPlugin({
               maxChunks: 1,
             }),
@@ -187,6 +185,11 @@ export default () => {
                 nodeArgs: ['-r', 'source-map-support/register'],
               }),
             isDev && new webpack.NamedModulesPlugin(),
+            new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
+            new WebpackBar({
+              color: '#c065f4',
+              name: 'server',
+            }),
           ].filter(Boolean),
         },
         { target: 'server', env: mode }
