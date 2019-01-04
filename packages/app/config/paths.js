@@ -41,6 +41,7 @@ export default {
   output: resolveApp('dist'),
   clientEntry: resolveModule(resolveApp, 'src/client'),
   clientOutput: resolveApp('dist/public'),
+  appHtml: resolveApp('public/index.html'),
   appManifest: resolveApp('dist/public/manifest.json'),
   pkg: resolveRoot('package.json'),
   customConfig: resolveApp('.app.js'),

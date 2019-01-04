@@ -10,6 +10,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin';
 import ModuleScopePlugin from 'react-dev-utils/ModuleScopePlugin';
 import ModuleNotFoundPlugin from 'react-dev-utils/ModuleNotFoundPlugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import paths from './paths';
 import appConfig from './app.config';
@@ -215,6 +216,13 @@ export default () => {
             paths.entry,
           ].filter(Boolean),
         },
+        plugins: [
+          ...baseClientConfig.plugins,
+          new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.appHtml,
+          }),
+        ],
       },
       { target: 'client', env: mode }
     ),
