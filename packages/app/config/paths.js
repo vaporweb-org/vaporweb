@@ -6,7 +6,7 @@ const appPath = fs.realpathSync(process.env.VW_APP_ROOT || process.cwd());
 const resolveRoot = relativePath => path.resolve(rootPath, relativePath);
 const resolveApp = relativePath => path.resolve(appPath, relativePath);
 
-const moduleFileExtensions = [
+export const moduleFileExtensions = [
   'web.mjs',
   'mjs',
   'web.js',
@@ -47,4 +47,5 @@ export default {
   tsConfig: resolveRoot('tsconfig.json'),
   tslintConfig: resolveModule(resolveRoot, 'tslint', true),
   eslintConfig: resolveModule(resolveRoot, '.eslintrc', true),
+  appModules: resolveRoot('node_modules'),
 };

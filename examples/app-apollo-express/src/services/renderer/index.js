@@ -17,8 +17,7 @@ export async function render(Root, { client, req, res }) {
     { end: false }
   );
 
-  // TODO: fix this import
-  const assets = require('../../../dist/public/manifest.json');
+  const assets = require(process.env.VW_APP_MANIFEST);
 
   stream.on('end', () => {
     res.end(footer({ data, assets }));

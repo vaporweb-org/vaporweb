@@ -5,9 +5,9 @@ export function header() {
   return html`
     <!DOCTYPE html>
     <html lang="en">
-      <head> </head>
+      <head></head>
       <body>
-        <div id="root"></div>
+        <div id="root">
   `;
 }
 
@@ -17,7 +17,9 @@ export function footer({ assets, data }) {
         <script>
           window.__APOLLO_STATE__ = ${JSON.stringify(data)};
         </script>
-        <script src="${assets['client.js']}"></script>
+        ${Object.keys(assets).map(
+          script => `<script src="${assets[script]}"></script>`
+        )}
       </body>
     </html>
   `;

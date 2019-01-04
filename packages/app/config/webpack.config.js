@@ -5,6 +5,11 @@ import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import WebpackBar from 'webpackbar';
 import ManifestPlugin from 'webpack-manifest-plugin';
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin';
+import ModuleScopePlugin from 'react-dev-utils/ModuleScopePlugin';
+import ModuleNotFoundPlugin from 'react-dev-utils/ModuleNotFoundPlugin';
 
 import paths from './paths';
 import appConfig from './app.config';
@@ -55,8 +60,16 @@ export default () => {
         },
       ].filter(Boolean),
     },
+    plugins: [
+      isDev && new CaseSensitivePathsPlugin(),
+      new ModuleNotFoundPlugin(paths.appPath),
+      new webpack.DefinePlugin({
+        'process.env.VW_APP_MANIFEST': JSON.stringify(paths.appManifest),
+      }),
+    ].filter(Boolean),
     resolve: {
-      extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+      extensions: ['.js', '.json', '.ts', '.tsx'],
+      plugins: [new ModuleScopePlugin(paths.src, [paths.appModules])],
     },
   };
 
@@ -72,6 +85,8 @@ export default () => {
     },
     target: 'web',
     plugins: [
+      ...baseConfig.plugins,
+      new WatchMissingNodeModulesPlugin(paths.appModules),
       new WebpackBar({
         color: '#f56be2',
         name: 'client',
@@ -95,6 +110,28 @@ export default () => {
         }),
       isDev && new webpack.NamedModulesPlugin(),
     ].filter(Boolean),
+    optimization: isProd
+      ? {
+          minimize: isProd,
+          minimizer: [
+            new TerserPlugin({
+              terserOptions: {
+                parallel: true,
+                cache: true,
+                sourceMap: isProd,
+                output: {
+                  ascii_only: true,
+                },
+              },
+            }),
+          ],
+          splitChunks: {
+            chunks: 'all',
+            name: false,
+          },
+          runtimeChunk: true,
+        }
+      : {},
     devServer: {
       compress: true,
       watchContentBase: true,
@@ -132,6 +169,7 @@ export default () => {
             }),
           ],
           plugins: [
+            ...baseConfig.plugins,
             new WebpackBar({
               color: '#c065f4',
               name: 'server',
