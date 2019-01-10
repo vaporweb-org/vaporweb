@@ -20,9 +20,11 @@ export default () => {
   const isProd = mode === 'production';
   const isDev = mode === 'development';
   const devServerPort = parseInt(appConfig.port, 10) + 1;
-  const clientPublicPath = isDev
-    ? `http://${appConfig.host}:${devServerPort}/`
-    : '/';
+  const clientPublicPath =
+    appConfig.clientPublicPath ||
+    (isDev
+      ? `http://${appConfig.host}:${devServerPort}/`
+      : appConfig.publicPath);
 
   const eslintConfig = fs.existsSync(paths.eslintConfig)
     ? paths.eslintConfig
@@ -132,12 +134,11 @@ export default () => {
         }
       : {},
     devServer: {
+      disableHostCheck: true,
       compress: true,
       watchContentBase: true,
       port: devServerPort,
       contentBase: paths.clientOutput,
-      allowedHosts: [appConfig.host],
-      host: appConfig.host,
       quiet: true,
       watchOptions: {
         ignored: /node_modules/,

@@ -10,6 +10,8 @@ let config = {
   server: false,
   port: process.env.PORT || 3000,
   host: process.env.HOST || 'localhost',
+  publicPath: process.env.PUBLIC_PATH || '/',
+  clientPublicPath: process.env.CLIENT_PUBLIC_PATH || '/',
   webpack: cfg => cfg,
 };
 
