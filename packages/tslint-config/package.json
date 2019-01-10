@@ -1,6 +1,6 @@
 {
   "name": "@vaporweb/tslint-config",
-  "version": "0.2.4-alpha.0",
+  "version": "0.2.5-alpha.0",
   "main": "index.json",
   "files": [
     "index.json"
