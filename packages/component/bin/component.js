@@ -1,7 +1,7 @@
 #!/usr/bin/env node -r esm
-import program from 'commander';
-import { spawnSync } from 'child_process';
-import pkg from '../package.json';
+const program = require('commander');
+const { spawnSync } = require('child_process');
+const pkg = require('../package.json');
 
 program
   .version(pkg.version)
