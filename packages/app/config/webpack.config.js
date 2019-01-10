@@ -141,6 +141,7 @@ export default () => {
       port: devServerPort,
       contentBase: paths.clientOutput,
       quiet: true,
+      hot: true,
       watchOptions: {
         ignored: /node_modules/,
       },
