@@ -35,6 +35,7 @@ const resolveModule = (resolveFn, filePath, extended) => {
 };
 
 export default {
+  appPath,
   src: resolveApp('src'),
   publicPath: resolveApp('public'),
   entry: resolveModule(resolveApp, 'src/index'),
