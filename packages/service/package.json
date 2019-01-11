@@ -1,6 +1,6 @@
 {
   "name": "@vaporweb/service",
-  "version": "0.2.7-alpha.0",
+  "version": "0.2.8-alpha.0",
   "description": "",
   "bin": {
     "service": "./bin/service.js"
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.6",
-    "@vaporweb/babel-preset": "^0.2.7-alpha.0",
-    "@vaporweb/eslint-config": "^0.2.7-alpha.0",
-    "@vaporweb/jest-config": "^0.2.7-alpha.0",
-    "@vaporweb/tslint-config": "^0.2.7-alpha.0",
+    "@vaporweb/babel-preset": "^0.2.8-alpha.0",
+    "@vaporweb/eslint-config": "^0.2.8-alpha.0",
+    "@vaporweb/jest-config": "^0.2.8-alpha.0",
+    "@vaporweb/tslint-config": "^0.2.8-alpha.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
