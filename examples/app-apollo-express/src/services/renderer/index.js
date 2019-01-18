@@ -7,7 +7,11 @@ import { header, footer } from './html';
 export async function render(Root, { client, req, res }) {
   res.write(header());
 
-  await getDataFromTree(Root);
+  try {
+    await getDataFromTree(Root);
+  } catch (err) {
+    console.error(err); /* eslint-disable-line no-console */
+  }
 
   const data = client.extract();
   const stream = renderToNodeStream(Root);

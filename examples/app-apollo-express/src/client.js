@@ -7,13 +7,15 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import App from './components/App';
 
+const apolloState = window.__APOLLO_STATE__;
+delete window.__APOLLO_STATE__;
+
 const client = new ApolloClient({
   link: createHttpLink({
-    uri: 'http://localhost:3010',
-
     credentials: 'same-origin',
+    uri: '/graphql',
   }),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache().restore(apolloState),
 });
 
 ReactDOM.hydrate(
