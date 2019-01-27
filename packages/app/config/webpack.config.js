@@ -175,7 +175,6 @@ export default () => {
             new ModuleNotFoundPlugin(paths.appPath),
             new webpack.DefinePlugin({
               'process.env.VW_APP_MANIFEST': JSON.stringify(paths.appManifest),
-              'process.env.PORT': JSON.stringify(appConfig.port),
             }),
 
             new webpack.optimize.LimitChunkCountPlugin({
