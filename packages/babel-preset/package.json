@@ -1,6 +1,6 @@
 {
   "name": "@vaporweb/babel-preset",
-  "version": "0.2.9-alpha.0",
+  "version": "0.2.10-alpha.0",
   "main": "index.js",
   "files": [
     "index.js"
