@@ -1,0 +1,12 @@
+{
+  "name": "vaporweb",
+  "version": "0.2.10-alpha.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": ""
+}
