@@ -19,7 +19,7 @@ export default () => {
   const mode = process.env.NODE_ENV || 'development';
   const isProd = mode === 'production';
   const isDev = mode === 'development';
-  const devServerPort = parseInt(appConfig.port, 10) + 1;
+  const devServerPort = appConfig.devPort || parseInt(appConfig.port, 10) + 1;
   const clientPublicPath =
     appConfig.clientPublicPath ||
     (isDev
@@ -87,6 +87,7 @@ export default () => {
       new webpack.DefinePlugin({
         'process.env.VW_APP_MANIFEST': JSON.stringify(paths.appManifest),
         'process.env.PORT': JSON.stringify(appConfig.port),
+        'process.env.DEV_PORT': JSON.stringify(appConfig.devPort),
       }),
       new AssetsPlugin({
         path: paths.output,
@@ -218,7 +219,7 @@ export default () => {
         ...baseClientConfig,
         entry: {
           client: [
-            isDev && require.resolve('react-dev-utils/webpackHotDevClient'),
+            isDev && require.resolve('./webpackHotDevClient'),
             paths.entry,
           ].filter(Boolean),
         },
@@ -229,6 +230,10 @@ export default () => {
             template: paths.appHtml,
           }),
         ],
+        devServer: {
+          ...baseClientConfig.devServer,
+          historyApiFallback: true,
+        },
       },
       { target: 'client', env: mode }
     ),

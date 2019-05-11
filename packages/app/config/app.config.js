@@ -8,6 +8,7 @@ let config = {
   tsc: false,
   tslint: false,
   server: false,
+  devPort: process.env.DEV_PORT || null,
   port: process.env.PORT || 3000,
   host: process.env.HOST || 'localhost',
   publicPath: process.env.PUBLIC_PATH || '/',
